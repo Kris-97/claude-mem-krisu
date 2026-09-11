@@ -62,12 +62,19 @@ export function parseFrontMatter(raw) {
   return { meta, body: raw.slice(match[0].length) };
 }
 
-/** Split a document into {title, text} sections at its `## ` headings. */
+/**
+ * Split a document into {title, text} sections at its `## ` headings.
+ *
+ * Fenced code blocks are held intact: a context file that documents this very
+ * format contains `##` lines inside its example fence, and treating those as
+ * real headings shreds the document into fragments titled after the example.
+ */
 export function splitSections(body, fallbackTitle) {
   const lines = body.split('\n');
   const sections = [];
   let title = null;
   let buffer = [];
+  let inFence = false;
 
   const flush = () => {
     const text = buffer.join('\n').trim();
@@ -77,6 +84,17 @@ export function splitSections(body, fallbackTitle) {
   };
 
   for (const line of lines) {
+    // ``` or ~~~ toggles a fence; the marker line itself stays in the body.
+    if (/^[ \t]*(```|~~~)/.test(line)) {
+      inFence = !inFence;
+      buffer.push(line);
+      continue;
+    }
+    if (inFence) {
+      buffer.push(line);
+      continue;
+    }
+
     const h2 = /^##[ \t]+(.*\S)[ \t]*$/.exec(line);
     const h1 = /^#[ \t]+(.*\S)[ \t]*$/.exec(line);
     if (h2) {
@@ -146,6 +164,14 @@ async function main() {
   for (const file of files) {
     const raw = fs.readFileSync(path.join(args.dir, file), 'utf-8');
     const { meta, body } = parseFrontMatter(raw);
+
+    // A README explains the pack to a person; it is not context worth recalling
+    // mid-task. Any file can opt out the same way with `import: false`.
+    if (/^readme\.md$/i.test(file) || String(meta.import).toLowerCase() === 'false') {
+      console.log(`skipping ${file} (not context)`);
+      continue;
+    }
+
     const project = args.project || meta.project || DEFAULT_PROJECT;
     const tags = Array.isArray(meta.tags) ? meta.tags : meta.tags ? [meta.tags] : [];
     const sections = splitSections(body, path.basename(file, '.md'));
