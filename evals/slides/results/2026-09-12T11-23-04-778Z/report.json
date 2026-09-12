@@ -1,0 +1,706 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-12T11:23:04.778Z",
+    "project": "evalproj",
+    "chromaLive": true,
+    "decksTraced": 27,
+    "commandsTraced": 3582,
+    "corpusUsed": true,
+    "scoringNote": "Family B uses deterministic reference-term coverage as a proxy for the LLM judge; full answers are included so the judgement stays inspectable."
+  },
+  "byFamily": {
+    "A": {
+      "n": 9,
+      "mean": 0.06349206349206349
+    },
+    "B": {
+      "n": 4,
+      "mean": 0.33999999999999997
+    },
+    "C": {
+      "n": 4,
+      "mean": 0.03
+    },
+    "D": {
+      "n": 4,
+      "mean": 0
+    },
+    "E": {
+      "n": 4,
+      "mean": 0
+    },
+    "F": {
+      "n": 3,
+      "mean": 0
+    }
+  },
+  "results": [
+    {
+      "id": "A-bw--brutalist-raw-shape",
+      "family": "A",
+      "deck": "bw--brutalist-raw",
+      "question": "In the \"bw--brutalist-raw\" deck, what officecli command created the shape named !!border-box, and what properties did it set?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 275,
+      "score": 0.14285714285714285,
+      "detail": "1/7 targets present",
+      "found": [
+        "!!border-box"
+      ],
+      "missed": [
+        "add",
+        "FFFFFF",
+        "20cm",
+        "2cm",
+        "10cm",
+        "8cm"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"In the \"bw--brutalist-raw\" deck, what officecli command created the shape named !!border-box, and what properties did it set?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #2 | 11:19 AM | ○ | bw--brutalist-raw slide 1 build commands | ~357 |\n| #6 | ″ | ○ | bw--brutalist-raw slide 5 build commands | ~435 |\n| #4 | ″ | ○ | bw--brutalist-raw slide 3 build commands | ~535 |\n| #5 | ″ | ○ | bw--brutalist-raw slide 4 build commands | ~720 |\n| #3 | ″ | ○ | bw--brutalist-raw slide 2 build commands | ~352 |\n| #48 | ″ | ○ | dark--investor-pitch slide 4 build commands | ~54 |\n| #100 | ″ | ○ | vivid--playful-marketing slide 4 build commands | ~56 |\n| #49 | ″ | ○ | dark--investor-pitch slide 5 build commands | ~54 |\n| #46 | ″ | ○ | dark--investor-pitch slide 2 build commands | ~54 |\n| #47 | ″ | ○ | dark--investor-pitch slide 3 build commands | ~54 |\n| #101 | ″ | ○ | vivid--playful-marketing slide 5 build commands | ~56 |\n| #45 | ″ | ○ | dark--investor-pitch slide 1 build commands | ~59 |\n"
+    },
+    {
+      "id": "A-bw--brutalist-raw-fill",
+      "family": "A",
+      "deck": "bw--brutalist-raw",
+      "question": "What fill colours were used in the \"bw--brutalist-raw\" deck?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 259,
+      "score": 0,
+      "detail": "0/4 targets present",
+      "found": [],
+      "missed": [
+        "FFFFFF",
+        "000000",
+        "FF0000",
+        "none"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What fill colours were used in the \"bw--brutalist-raw\" deck?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #113 | 11:20 AM | ○ | House accent colour set | ~20 |\n| #1 | 11:19 AM | ○ | Built bw--brutalist-raw deck with officecli | ~182 |\n| #115 | 11:20 AM | ○ | House accent colour is now teal | ~35 |\n| #9 | 11:19 AM | ○ | Built bw--swiss-bauhaus deck with officecli | ~139 |\n| #86 | ″ | ○ | Built light--watercolor-wash deck with officecli | ~195 |\n| #22 | ″ | ○ | Built dark--blueprint-grid deck with officecli | ~234 |\n| #51 | ″ | ○ | Built dark--liquid-flow deck with officecli | ~197 |\n| #62 | ″ | ○ | Built dark--premium-navy deck with officecli | ~166 |\n| #60 | ″ | ○ | Built dark--neon-productivity deck with officecli | ~293 |\n| #111 | ″ | ○ | Built warm--playful-organic deck with officecli | ~227 |\n| #109 | ″ | ○ | Built warm--earth-organic deck with officecli | ~221 |\n| #103 | ″ | ○ | Built warm--brand-refresh deck with officecli | ~165 |\n"
+    },
+    {
+      "id": "A-bw--mono-line-shape",
+      "family": "A",
+      "deck": "bw--mono-line",
+      "question": "In the \"bw--mono-line\" deck, what officecli command created the shape named !!line-h-top, and what properties did it set?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 238,
+      "score": 0.14285714285714285,
+      "detail": "1/7 targets present",
+      "found": [
+        "!!line-h-top"
+      ],
+      "missed": [
+        "add",
+        "1A1A1A",
+        "0cm",
+        "1.5cm",
+        "20cm",
+        "0.05cm"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"In the \"bw--mono-line\" deck, what officecli command created the shape named !!line-h-top, and what properties did it set?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #8 | 11:19 AM | ○ | bw--mono-line slide 1 build commands | ~571 |\n| #7 | ″ | ○ | Built bw--mono-line deck with officecli | ~183 |\n| #49 | ″ | ○ | dark--investor-pitch slide 5 build commands | ~54 |\n| #48 | ″ | ○ | dark--investor-pitch slide 4 build commands | ~54 |\n| #46 | ″ | ○ | dark--investor-pitch slide 2 build commands | ~54 |\n| #47 | ″ | ○ | dark--investor-pitch slide 3 build commands | ~54 |\n| #45 | ″ | ○ | dark--investor-pitch slide 1 build commands | ~59 |\n| #100 | ″ | ○ | vivid--playful-marketing slide 4 build commands | ~56 |\n| #101 | ″ | ○ | vivid--playful-marketing slide 5 build commands | ~56 |\n| #98 | ″ | ○ | vivid--playful-marketing slide 2 build commands | ~56 |\n| #99 | ″ | ○ | vivid--playful-marketing slide 3 build commands | ~56 |\n| #6 | ″ | ○ | bw--brutalist-raw slide 5 build commands | ~435 |\n"
+    },
+    {
+      "id": "A-bw--mono-line-fill",
+      "family": "A",
+      "deck": "bw--mono-line",
+      "question": "What fill colours were used in the \"bw--mono-line\" deck?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 267,
+      "score": 0,
+      "detail": "0/3 targets present",
+      "found": [],
+      "missed": [
+        "1A1A1A",
+        "C8C8C8",
+        "none"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What fill colours were used in the \"bw--mono-line\" deck?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #113 | 11:20 AM | ○ | House accent colour set | ~20 |\n| #22 | 11:19 AM | ○ | Built dark--blueprint-grid deck with officecli | ~234 |\n| #9 | ″ | ○ | Built bw--swiss-bauhaus deck with officecli | ~139 |\n| #86 | ″ | ○ | Built light--watercolor-wash deck with officecli | ~195 |\n| #115 | 11:20 AM | ○ | House accent colour is now teal | ~35 |\n| #60 | 11:19 AM | ○ | Built dark--neon-productivity deck with officecli | ~293 |\n| #90 | ″ | ○ | Built vivid--candy-stripe deck with officecli | ~194 |\n| #7 | ″ | ○ | Built bw--mono-line deck with officecli | ~183 |\n| #62 | ″ | ○ | Built dark--premium-navy deck with officecli | ~166 |\n| #51 | ″ | ○ | Built dark--liquid-flow deck with officecli | ~197 |\n| #111 | ″ | ○ | Built warm--playful-organic deck with officecli | ~227 |\n| #40 | ″ | ○ | Built dark--diagonal-cut deck with officecli | ~220 |\n"
+    },
+    {
+      "id": "A-bw--swiss-bauhaus-shape",
+      "family": "A",
+      "deck": "bw--swiss-bauhaus",
+      "question": "In the \"bw--swiss-bauhaus\" deck, what officecli command created the shape named !!blk-a, and what properties did it set?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 249,
+      "score": 0.14285714285714285,
+      "detail": "1/7 targets present",
+      "found": [
+        "!!blk-a"
+      ],
+      "missed": [
+        "add",
+        "E63322",
+        "0cm",
+        "0cm",
+        "14cm",
+        "19.05cm"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"In the \"bw--swiss-bauhaus\" deck, what officecli command created the shape named !!blk-a, and what properties did it set?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #9 | 11:19 AM | ○ | Built bw--swiss-bauhaus deck with officecli | ~139 |\n| #13 | ″ | ○ | bw--swiss-bauhaus slide 4 build commands | ~485 |\n| #14 | ″ | ○ | bw--swiss-bauhaus slide 5 build commands | ~501 |\n| #10 | ″ | ○ | bw--swiss-bauhaus slide 1 build commands | ~479 |\n| #12 | ″ | ○ | bw--swiss-bauhaus slide 3 build commands | ~479 |\n| #11 | ″ | ○ | bw--swiss-bauhaus slide 2 build commands | ~480 |\n| #2 | ″ | ○ | bw--brutalist-raw slide 1 build commands | ~357 |\n| #8 | ″ | ○ | bw--mono-line slide 1 build commands | ~571 |\n| #6 | ″ | ○ | bw--brutalist-raw slide 5 build commands | ~435 |\n| #5 | ″ | ○ | bw--brutalist-raw slide 4 build commands | ~720 |\n| #4 | ″ | ○ | bw--brutalist-raw slide 3 build commands | ~535 |\n| #3 | ″ | ○ | bw--brutalist-raw slide 2 build commands | ~352 |\n"
+    },
+    {
+      "id": "A-bw--swiss-bauhaus-fill",
+      "family": "A",
+      "deck": "bw--swiss-bauhaus",
+      "question": "What fill colours were used in the \"bw--swiss-bauhaus\" deck?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 252,
+      "score": 0,
+      "detail": "0/5 targets present",
+      "found": [],
+      "missed": [
+        "E63322",
+        "1C1C1C",
+        "F5F5F5",
+        "999999",
+        "666666"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What fill colours were used in the \"bw--swiss-bauhaus\" deck?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #9 | 11:19 AM | ○ | Built bw--swiss-bauhaus deck with officecli | ~139 |\n| #113 | 11:20 AM | ○ | House accent colour set | ~20 |\n| #115 | ″ | ○ | House accent colour is now teal | ~35 |\n| #22 | 11:19 AM | ○ | Built dark--blueprint-grid deck with officecli | ~234 |\n| #86 | ″ | ○ | Built light--watercolor-wash deck with officecli | ~195 |\n| #51 | ″ | ○ | Built dark--liquid-flow deck with officecli | ~197 |\n| #60 | ″ | ○ | Built dark--neon-productivity deck with officecli | ~293 |\n| #111 | ″ | ○ | Built warm--playful-organic deck with officecli | ~227 |\n| #96 | ″ | ○ | Built vivid--playful-marketing deck with officecli | ~114 |\n| #90 | ″ | ○ | Built vivid--candy-stripe deck with officecli | ~194 |\n| #78 | ″ | ○ | Built light--isometric-clean deck with officecli | ~125 |\n| #103 | ″ | ○ | Built warm--brand-refresh deck with officecli | ~165 |\n"
+    },
+    {
+      "id": "A-dark--architectural-plan-shape",
+      "family": "A",
+      "deck": "dark--architectural-plan",
+      "question": "In the \"dark--architectural-plan\" deck, what officecli command created the shape named !!bg-panel, and what properties did it set?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 266,
+      "score": 0.14285714285714285,
+      "detail": "1/7 targets present",
+      "found": [
+        "!!bg-panel"
+      ],
+      "missed": [
+        "add",
+        "B5D5E3",
+        "20.87cm",
+        "0cm",
+        "13cm",
+        "19.1cm"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"In the \"dark--architectural-plan\" deck, what officecli command created the shape named !!bg-panel, and what properties did it set?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #48 | 11:19 AM | ○ | dark--investor-pitch slide 4 build commands | ~54 |\n| #49 | ″ | ○ | dark--investor-pitch slide 5 build commands | ~54 |\n| #47 | ″ | ○ | dark--investor-pitch slide 3 build commands | ~54 |\n| #46 | ″ | ○ | dark--investor-pitch slide 2 build commands | ~54 |\n| #45 | ″ | ○ | dark--investor-pitch slide 1 build commands | ~59 |\n| #15 | ″ | ○ | Built dark--architectural-plan deck with officecli | ~174 |\n| #19 | ″ | ○ | dark--architectural-plan slide 4 build commands | ~790 |\n| #16 | ″ | ○ | dark--architectural-plan slide 1 build commands | ~760 |\n| #17 | ″ | ○ | dark--architectural-plan slide 2 build commands | ~794 |\n| #21 | ″ | ○ | dark--architectural-plan slide 6 build commands | ~825 |\n| #23 | ″ | ○ | dark--blueprint-grid slide 1 build commands | ~567 |\n| #18 | ″ | ○ | dark--architectural-plan slide 3 build commands | ~759 |\n"
+    },
+    {
+      "id": "A-dark--architectural-plan-fill",
+      "family": "A",
+      "deck": "dark--architectural-plan",
+      "question": "What fill colours were used in the \"dark--architectural-plan\" deck?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 269,
+      "score": 0,
+      "detail": "0/5 targets present",
+      "found": [],
+      "missed": [
+        "B5D5E3",
+        "4F92B0",
+        "E3F1F8",
+        "none",
+        "FEF0C0"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What fill colours were used in the \"dark--architectural-plan\" deck?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #113 | 11:20 AM | ○ | House accent colour set | ~20 |\n| #15 | 11:19 AM | ○ | Built dark--architectural-plan deck with officecli | ~174 |\n| #22 | ″ | ○ | Built dark--blueprint-grid deck with officecli | ~234 |\n| #44 | ″ | ○ | Built dark--investor-pitch deck with officecli | ~104 |\n| #60 | ″ | ○ | Built dark--neon-productivity deck with officecli | ~293 |\n| #51 | ″ | ○ | Built dark--liquid-flow deck with officecli | ~197 |\n| #86 | ″ | ○ | Built light--watercolor-wash deck with officecli | ~195 |\n| #40 | ″ | ○ | Built dark--diagonal-cut deck with officecli | ~220 |\n| #111 | ″ | ○ | Built warm--playful-organic deck with officecli | ~227 |\n| #9 | ″ | ○ | Built bw--swiss-bauhaus deck with officecli | ~139 |\n| #78 | ″ | ○ | Built light--isometric-clean deck with officecli | ~125 |\n| #96 | ″ | ○ | Built vivid--playful-marketing deck with officecli | ~114 |\n"
+    },
+    {
+      "id": "A-transition",
+      "family": "A",
+      "deck": "bw--brutalist-raw",
+      "question": "What slide transition was configured in the \"bw--brutalist-raw\" deck?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 249,
+      "score": 0,
+      "detail": "0/1 targets present",
+      "found": [],
+      "missed": [
+        "morph"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What slide transition was configured in the \"bw--brutalist-raw\" deck?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #4 | 11:19 AM | ○ | bw--brutalist-raw slide 3 build commands | ~535 |\n| #6 | ″ | ○ | bw--brutalist-raw slide 5 build commands | ~435 |\n| #3 | ″ | ○ | bw--brutalist-raw slide 2 build commands | ~352 |\n| #5 | ″ | ○ | bw--brutalist-raw slide 4 build commands | ~720 |\n| #2 | ″ | ○ | bw--brutalist-raw slide 1 build commands | ~357 |\n| #118 | 11:20 AM | ○ | Default transition set to fade | ~21 |\n| #1 | 11:19 AM | ○ | Built bw--brutalist-raw deck with officecli | ~182 |\n| #14 | ″ | ○ | bw--swiss-bauhaus slide 5 build commands | ~501 |\n| #13 | ″ | ○ | bw--swiss-bauhaus slide 4 build commands | ~485 |\n| #12 | ″ | ○ | bw--swiss-bauhaus slide 3 build commands | ~479 |\n| #53 | ″ | ○ | dark--liquid-flow slide 2 build commands | ~586 |\n| #11 | ″ | ○ | bw--swiss-bauhaus slide 2 build commands | ~480 |\n"
+    },
+    {
+      "id": "B-prevalent-taste",
+      "family": "B",
+      "deck": null,
+      "question": "What taste is prevalent across all these slides?",
+      "route": "corpus",
+      "retrieved": 1,
+      "latencyMs": 23917,
+      "score": 0.32,
+      "detail": "8/25 targets present",
+      "found": [
+        "corpus",
+        "reference",
+        "decks",
+        "slides",
+        "palette",
+        "distinct",
+        "Typography",
+        "Light"
+      ],
+      "missed": [
+        "officecli-built",
+        "Colour",
+        "tight",
+        "per-deck",
+        "fills",
+        "applied",
+        "opacity",
+        "depth",
+        "extra",
+        "small",
+        "families",
+        "Arial",
+        "Black",
+        "Courier",
+        "Segoe",
+        "Inter",
+        "heading"
+      ],
+      "falseClaims": [],
+      "answer": "# Prevalent Design Taste Across All Slides\n\nThe corpus reveals a distinctly **contemporary, high-design modernist aesthetic** with several consistent characteristics:\n\n## **1. Geometric Abstraction**\nNearly every deck relies heavily on abstract geometric shapes—circles, ellipses, rectangles, diamonds, blobs—rather than representational imagery. Even when image placeholders exist, they're secondary to the geometric compositional framework.\n\n## **2. Sophisticated Color Systemization**\nColors are carefully curated into deliberate palettes (not random):\n- **Dark decks**: Deep blues, teals, neons, golds—evoking tech/luxury\n- **Light decks**: Minimal backgrounds with strategic accent colors\n- **Warm/organic decks**: Earthy, muted earth tones\n- **Vivid decks**: Bold, saturated primaries used with restraint\n\nAll demonstrate *intentional color theory* rather than arbitrary decoration.\n\n## **3. Typographic Formality**\nTypography is treated as a primary design element—bold sans-serifs, clear hierarchies, generous spacing. Type is *architectural* rather than casual.\n\n## **4. Minimalist Discipline**\nEven visually complex decks follow a \"less is more\" ethos with generous negative space, clear compositional structure, and no decorative excess. The house style explicitly rejected decorative underlines and emoji.\n\n## **5. Design Movement References**\nThe deck names hint at this: Brutalism, Swiss-Bauhaus, Isometric, Minimalist—all referencing **20th-century modernist design movements**.\n\n---\n\n**Overall: The taste is *design-systems thinking* — contemporary, sophisticated, geometric, color-intentional, and rooted in modernist design discipline.**"
+    },
+    {
+      "id": "B-colour-discipline",
+      "family": "B",
+      "deck": null,
+      "question": "What is the colour discipline across the decks — how many colours per deck, and how are they used?",
+      "route": "corpus",
+      "retrieved": 1,
+      "latencyMs": 56802,
+      "score": 0.32,
+      "detail": "8/25 targets present",
+      "found": [
+        "decks",
+        "Colour",
+        "palette",
+        "fills",
+        "opacity",
+        "families",
+        "Black",
+        "Light"
+      ],
+      "missed": [
+        "corpus",
+        "officecli-built",
+        "reference",
+        "slides",
+        "tight",
+        "per-deck",
+        "distinct",
+        "applied",
+        "depth",
+        "extra",
+        "Typography",
+        "small",
+        "Arial",
+        "Courier",
+        "Segoe",
+        "Inter",
+        "heading"
+      ],
+      "falseClaims": [],
+      "answer": "# Colour Discipline Across Decks\n\n## Colour Count Distribution\n\nThe decks show **deliberate variety** in their colour economies:\n\n| Colour Count | Number of Decks | Examples |\n|---|---|---|\n| **2–3 colors** | 6 decks | mono-line, brutalist-raw, cosmic-neon, luxury-minimal, bold-type, spotlight-stage |\n| **4–5 colors** | 11 decks | swiss-bauhaus, blueprint-grid, editorial-story, isometric-clean, watercolor-wash, candy-stripe |\n| **6–8 colors** | 7 decks | liquid-flow, premium-navy, earth-organic, playful-organic, brand-refresh |\n| **9+ colors** | 6 decks | circle-digital (14), neon-productivity (9), space-odyssey (17) |\n\n---\n\n## Colour Use Patterns by Role\n\n### **Primary Structural Use**\n- **Background**: Dominant fill (usually darkest or lightest value)\n- **Text/Content**: High contrast to background\n- **Photo placeholders**: Grays with opacity masks (999999, 666666, AAAAAA)\n\n### **Secondary Organizational Use**\n- **Section/panel fills**: Supporting colors create hierarchy\n- **Lines & borders**: Often same as text or slightly muted\n- **Cards/containers**: Subtle fills (usually opacity 0.05–0.3)\n\n### **Tertiary Accent Use**\n- **Single bright accent color**: Draws attention to CTAs, key metrics, or highlights\n- **Examples**: \n  - FF0000 (red) in brutalist-raw\n  - C4FF00 (neon yellow) in circle-digital\n  - F0BE3C (gold) in architectural-plan\n  - 0FB5A0 (house teal) should appear here\n\n---\n\n## Style-Specific Disciplines\n\n### **Minimal/Luxury Decks** (2–3 colors)\n- Monochrome + single accent\n- Example: **luxury-minimal** = D4AF37 (gold) + 333333 (charcoal) + white\n- High restraint, maximum impact\n\n### **Black & White Decks** (3–4 colors)\n- FFFFFF + 000000 + 1–2 accent colors\n- Example: **brutalist-raw** = white + black + red\n- Disciplined, rebellious restraint\n\n### **Professional/Corporate Decks** (4–6 colors)\n- Navy/dark base + 1–2 accent colors + supporting grays\n- Example: **premium-navy** = C9A84C (gold) + 1E3A5F (navy) + 8EACC1 (steel) + white\n- Sophisticated, multi-tonal\n\n### **Organic/Warm Decks** (5–6 colors)\n- Earthy/warm palette: browns, sage, teals, creams\n- Example: **earth-organic** = 8B6F47 (brown) + A8C686 (sage) + D4956B (terra) + E8D5B0 (cream)\n- Harmonious, nature-inspired\n\n### **Vivid/Playful Decks** (5–6 colors)\n- Saturated, complementary palette\n- Example: **candy-stripe** = FF5252 (red) + FF7B39 (orange) + FFD740 (yellow) + 69F0AE (green) + 40C4FF (blue) + 7C4DFF (purple)\n- Rainbow system, each color equally weighted\n\n### **Digital/Neon Decks** (3–5 colors)\n- Dark base + 2–3 neon accents\n- Example: **cosmic-neon** = 8A2BE2 (purple) + 00FFFF (cyan) + 111122 (near-black)\n- High contrast, futuristic energy\n\n### **Complex Narrative Decks** (9–17 colors)\n- Multiple color families for different section themes\n- Example: **space-odyssey** = 17 colors including blues, golds, oranges, purples for different \"stations\"\n- Each section has its own accent color\n\n---\n\n## Observations on Discipline\n\n1. **Consistency within families**: Decks use 2–3 shades of the same hue (e.g., navy variations, blue family)\n2. **Accent color prominence**: All decks reserve 1–2 bright colors for CTAs and metrics\n3. **No deck uses all 6 accent colors equally**: Hierarchy is always present\n4. **Photo/image treatment**: Placeholder grays with opacity create neutral backgrounds\n5. **Background/foreground contrast**: All maintain WCAG accessibility standards (high contrast text)\n\n**Current house standard**: Accent should be **#0FB5A0 (teal)** — this fits the \"professional + single bright accent\" pattern seen in premium-navy and isometric-clean."
+    },
+    {
+      "id": "B-typography",
+      "family": "B",
+      "deck": null,
+      "question": "What typographic posture is consistent across the decks?",
+      "route": "corpus",
+      "retrieved": 1,
+      "latencyMs": 29140,
+      "score": 0.36,
+      "detail": "9/25 targets present",
+      "found": [
+        "reference",
+        "decks",
+        "Typography",
+        "families",
+        "Arial",
+        "Black",
+        "Segoe",
+        "Light",
+        "Inter"
+      ],
+      "missed": [
+        "corpus",
+        "officecli-built",
+        "slides",
+        "Colour",
+        "tight",
+        "per-deck",
+        "palette",
+        "distinct",
+        "fills",
+        "applied",
+        "opacity",
+        "depth",
+        "extra",
+        "small",
+        "Courier",
+        "heading"
+      ],
+      "falseClaims": [],
+      "answer": "# Consistent Typographic Posture\n\nAcross all 27 reference decks, there is a clear and consistent typographic posture:\n\n## **Sans-Serif Dominance with Strong Weight Hierarchy**\n\n**Font Characteristics:**\n- **Sans-serif exclusive** (Arial, Segoe UI, Inter, Montserrat are the workhorses)\n- **Minimal font families per deck** (typically 1–3 fonts maximum)\n- **Weight contrast driven**: Black/Bold for headlines, Light/Regular for body text\n- No decorative or ornamental typefaces\n\n## **Scale-Based Visual Hierarchy**\n\n- **Headline scale**: 48–96pt (often 54–72pt)\n- **Body/supporting text**: 9–24pt\n- **Extreme size ratios** create immediate visual clarity—no ambiguity about reading order\n\nExamples:\n- *bw--swiss-bauhaus* (Observation): Arial at 64pt bold for main, 12pt for subtitle\n- *light--bold-type* (Observation): Segoe UI Black 72pt vs. Light 18pt\n- *dark--liquid-flow* (Observation): Arial 56pt bold titles vs. 20pt body text\n\n## **Minimal Color Variation**\n\n- High contrast only: dark text on light, or light on dark\n- No gray-on-gray; no subtle typography\n- Color used strategically for accent, not for text hierarchy\n\n## **International/Modular Approach**\n\nMix of Western fonts (Arial, Inter, Montserrat) and CJK fonts (Microsoft YaHei, 思源黑体, PingFang SC) in the same project—suggesting the system is designed to scale across languages without typographic compromise.\n\n**Posture Summary**: *Professional, modern, accessible, and ruthlessly hierarchical.*"
+    },
+    {
+      "id": "B-house-rules",
+      "family": "B",
+      "deck": null,
+      "question": "If you were to build a new deck in this house style, what five rules would you follow? Be specific to these decks.",
+      "route": "corpus",
+      "retrieved": 1,
+      "latencyMs": 23529,
+      "score": 0.36,
+      "detail": "9/25 targets present",
+      "found": [
+        "corpus",
+        "reference",
+        "decks",
+        "slides",
+        "Colour",
+        "opacity",
+        "Typography",
+        "small",
+        "Light"
+      ],
+      "missed": [
+        "officecli-built",
+        "tight",
+        "per-deck",
+        "palette",
+        "distinct",
+        "fills",
+        "applied",
+        "depth",
+        "extra",
+        "families",
+        "Arial",
+        "Black",
+        "Courier",
+        "Segoe",
+        "Inter",
+        "heading"
+      ],
+      "falseClaims": [],
+      "answer": "# Five House Style Rules for New Decks\n\nBased on the reference corpus, here are five specific rules I would follow:\n\n## 1. **Accent with #0FB5A0 (Teal) — Sparingly**\nUse the house accent colour #0FB5A0 for key highlights, divider lines, or small accent shapes only. Never use it as a dominant background. Examples: dark--spotlight-stage uses it for CTAs; light--isometric-clean uses it for accent shapes at 0.6–0.8 opacity.\n\n## 2. **Apply Morph Transition to All Slides After Slide 1**\nSet `transition=morph` on slides 2 onward. Slide 1 should have no transition. This is the current standard across all 23 reference decks (replacing the previous fade default).\n\n## 3. **Place the Ask/CTA Slide Last, Never Second**\nStructure decks with strongest content first, save the call-to-action for the final slide. This is a KM-mandated rule. Examples: dark--spotlight-stage (CTA on slide 5), light--bold-type (contact/ask on slide 5).\n\n## 4. **Use Blank Layout with 1.5cm Margins**\nAlways use `layout=blank` and respect the 1.5cm margin standard (standard updated from 1.27cm). Position all content within this margin boundary. This gives consistent breathing room across decks.\n\n## 5. **No Decorative Underlines Under Titles — Clean Treatment Only**\nTitles should stand on typography alone. Never add ornamental lines, flourishes, or underlines beneath slide titles. Use colour, scale, or spacing instead to create hierarchy. KM explicitly rejected decorative underlines."
+    },
+    {
+      "id": "C-style-elements",
+      "family": "C",
+      "deck": null,
+      "question": "What style elements are used across these decks? List the shape and slide properties that were actually set.",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 282,
+      "score": 0.12,
+      "detail": "recall 3/25",
+      "found": [
+        "color",
+        "x",
+        "y"
+      ],
+      "missed": [
+        "align",
+        "background",
+        "bold",
+        "fill",
+        "font",
+        "geometry",
+        "height",
+        "layout",
+        "line",
+        "lineOpacity",
+        "lineSpacing",
+        "lineWidth",
+        "margin",
+        "name",
+        "opacity",
+        "preset",
+        "rotation",
+        "size",
+        "text",
+        "transition",
+        "valign",
+        "width"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What style elements are used across these decks? List the shape and slide properties that were actually set.\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #96 | 11:19 AM | ○ | Built vivid--playful-marketing deck with officecli | ~114 |\n| #78 | ″ | ○ | Built light--isometric-clean deck with officecli | ~125 |\n| #111 | ″ | ○ | Built warm--playful-organic deck with officecli | ~227 |\n| #1 | ″ | ○ | Built bw--brutalist-raw deck with officecli | ~182 |\n| #9 | ″ | ○ | Built bw--swiss-bauhaus deck with officecli | ~139 |\n| #86 | ″ | ○ | Built light--watercolor-wash deck with officecli | ~195 |\n| #44 | ″ | ○ | Built dark--investor-pitch deck with officecli | ~104 |\n| #62 | ″ | ○ | Built dark--premium-navy deck with officecli | ~166 |\n| #58 | ″ | ○ | Built dark--luxury-minimal deck with officecli | ~173 |\n| #22 | ″ | ○ | Built dark--blueprint-grid deck with officecli | ~234 |\n| #41 | ″ | ○ | dark--diagonal-cut slide 1 build commands | ~715 |\n| #5 | ″ | ○ | bw--brutalist-raw slide 4 build commands | ~720 |\n"
+    },
+    {
+      "id": "C-fonts",
+      "family": "C",
+      "deck": null,
+      "question": "What fonts appear across the decks?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 267,
+      "score": 0,
+      "detail": "recall 0/17",
+      "found": [],
+      "missed": [
+        "Arial",
+        "Arial Black",
+        "Courier New",
+        "Georgia",
+        "Helvetica",
+        "Inter",
+        "LXGW WenKai",
+        "Microsoft YaHei",
+        "Montserrat",
+        "Montserrat Bold",
+        "Noto Serif",
+        "PingFang SC",
+        "Segoe UI",
+        "Segoe UI Black",
+        "Segoe UI Light",
+        "思源黑体",
+        "苹方-简"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What fonts appear across the decks?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #44 | 11:19 AM | ○ | Built dark--investor-pitch deck with officecli | ~104 |\n| #113 | 11:20 AM | ○ | House accent colour set | ~20 |\n| #96 | 11:19 AM | ○ | Built vivid--playful-marketing deck with officecli | ~114 |\n| #62 | ″ | ○ | Built dark--premium-navy deck with officecli | ~166 |\n| #115 | 11:20 AM | ○ | House accent colour is now teal | ~35 |\n| #9 | 11:19 AM | ○ | Built bw--swiss-bauhaus deck with officecli | ~139 |\n| #22 | ″ | ○ | Built dark--blueprint-grid deck with officecli | ~234 |\n| #111 | ″ | ○ | Built warm--playful-organic deck with officecli | ~227 |\n| #78 | ″ | ○ | Built light--isometric-clean deck with officecli | ~125 |\n| #90 | ″ | ○ | Built vivid--candy-stripe deck with officecli | ~194 |\n| #1 | ″ | ○ | Built bw--brutalist-raw deck with officecli | ~182 |\n| #64 | ″ | ○ | Built dark--space-odyssey deck with officecli | ~290 |\n"
+    },
+    {
+      "id": "C-transitions",
+      "family": "C",
+      "deck": null,
+      "question": "What slide transition types are used across the decks?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 253,
+      "score": 0,
+      "detail": "recall 0/1",
+      "found": [],
+      "missed": [
+        "morph"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What slide transition types are used across the decks?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #78 | 11:19 AM | ○ | Built light--isometric-clean deck with officecli | ~125 |\n| #108 | ″ | ○ | warm--brand-refresh slide 5 build commands | ~619 |\n| #3 | ″ | ○ | bw--brutalist-raw slide 2 build commands | ~352 |\n| #5 | ″ | ○ | bw--brutalist-raw slide 4 build commands | ~720 |\n| #2 | ″ | ○ | bw--brutalist-raw slide 1 build commands | ~357 |\n| #4 | ″ | ○ | bw--brutalist-raw slide 3 build commands | ~535 |\n| #96 | ″ | ○ | Built vivid--playful-marketing deck with officecli | ~114 |\n| #53 | ″ | ○ | dark--liquid-flow slide 2 build commands | ~586 |\n| #106 | ″ | ○ | warm--brand-refresh slide 3 build commands | ~568 |\n| #107 | ″ | ○ | warm--brand-refresh slide 4 build commands | ~673 |\n| #54 | ″ | ○ | dark--liquid-flow slide 3 build commands | ~700 |\n| #51 | ″ | ○ | Built dark--liquid-flow deck with officecli | ~197 |\n"
+    },
+    {
+      "id": "C-bw--swiss-bauhaus-props",
+      "family": "C",
+      "deck": "bw--swiss-bauhaus",
+      "question": "Which shape and slide properties were set when building the \"bw--swiss-bauhaus\" deck?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 282,
+      "score": 0,
+      "detail": "recall 0/15",
+      "found": [],
+      "missed": [
+        "background",
+        "bold",
+        "color",
+        "fill",
+        "font",
+        "height",
+        "layout",
+        "name",
+        "opacity",
+        "size",
+        "text",
+        "transition",
+        "width",
+        "x",
+        "y"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"Which shape and slide properties were set when building the \"bw--swiss-bauhaus\" deck?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #14 | 11:19 AM | ○ | bw--swiss-bauhaus slide 5 build commands | ~501 |\n| #13 | ″ | ○ | bw--swiss-bauhaus slide 4 build commands | ~485 |\n| #10 | ″ | ○ | bw--swiss-bauhaus slide 1 build commands | ~479 |\n| #11 | ″ | ○ | bw--swiss-bauhaus slide 2 build commands | ~480 |\n| #12 | ″ | ○ | bw--swiss-bauhaus slide 3 build commands | ~479 |\n| #9 | ″ | ○ | Built bw--swiss-bauhaus deck with officecli | ~139 |\n| #3 | ″ | ○ | bw--brutalist-raw slide 2 build commands | ~352 |\n| #5 | ″ | ○ | bw--brutalist-raw slide 4 build commands | ~720 |\n| #4 | ″ | ○ | bw--brutalist-raw slide 3 build commands | ~535 |\n| #6 | ″ | ○ | bw--brutalist-raw slide 5 build commands | ~435 |\n| #2 | ″ | ○ | bw--brutalist-raw slide 1 build commands | ~357 |\n| #8 | ″ | ○ | bw--mono-line slide 1 build commands | ~571 |\n"
+    },
+    {
+      "id": "D-no-slide-9",
+      "family": "D",
+      "deck": null,
+      "question": "What code built slide 9's third quadrant in the swiss-bauhaus deck?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 251,
+      "score": 0,
+      "detail": "answered confidently when it should have abstained",
+      "found": [
+        "quadrant"
+      ],
+      "missed": [],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What code built slide 9's third quadrant in the swiss-bauhaus deck?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #9 | 11:19 AM | ○ | Built bw--swiss-bauhaus deck with officecli | ~139 |\n| #14 | ″ | ○ | bw--swiss-bauhaus slide 5 build commands | ~501 |\n| #13 | ″ | ○ | bw--swiss-bauhaus slide 4 build commands | ~485 |\n| #12 | ″ | ○ | bw--swiss-bauhaus slide 3 build commands | ~479 |\n| #10 | ″ | ○ | bw--swiss-bauhaus slide 1 build commands | ~479 |\n| #11 | ″ | ○ | bw--swiss-bauhaus slide 2 build commands | ~480 |\n| #5 | ″ | ○ | bw--brutalist-raw slide 4 build commands | ~720 |\n| #4 | ″ | ○ | bw--brutalist-raw slide 3 build commands | ~535 |\n| #3 | ″ | ○ | bw--brutalist-raw slide 2 build commands | ~352 |\n| #54 | ″ | ○ | dark--liquid-flow slide 3 build commands | ~700 |\n| #41 | ″ | ○ | dark--diagonal-cut slide 1 build commands | ~715 |\n| #6 | ″ | ○ | bw--brutalist-raw slide 5 build commands | ~435 |\n"
+    },
+    {
+      "id": "D-helvetica-licence",
+      "family": "D",
+      "deck": null,
+      "question": "What did we decide about the Helvetica Neue licensing for these decks?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 256,
+      "score": 0,
+      "detail": "answered confidently when it should have abstained",
+      "found": [],
+      "missed": [],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What did we decide about the Helvetica Neue licensing for these decks?\" (12 obs, 0 sessions, 0 prompts)\n\n### May 15, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #120 | 11:20 AM | ○ | Deck archiving policy | ~29 |\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #2 | 11:19 AM | ○ | bw--brutalist-raw slide 1 build commands | ~357 |\n| #115 | 11:20 AM | ○ | House accent colour is now teal | ~35 |\n| #101 | 11:19 AM | ○ | vivid--playful-marketing slide 5 build commands | ~56 |\n| #96 | ″ | ○ | Built vivid--playful-marketing deck with officecli | ~114 |\n| #113 | 11:20 AM | ○ | House accent colour set | ~20 |\n| #58 | 11:19 AM | ○ | Built dark--luxury-minimal deck with officecli | ~173 |\n| #78 | ″ | ○ | Built light--isometric-clean deck with officecli | ~125 |\n| #100 | ″ | ○ | vivid--playful-marketing slide 4 build commands | ~56 |\n| #97 | ″ | ○ | vivid--playful-marketing slide 1 build commands | ~61 |\n| #9 | ″ | ○ | Built bw--swiss-bauhaus deck with officecli | ~139 |\n| #99 | ″ | ○ | vivid--playful-marketing slide 3 build commands | ~56 |\n"
+    },
+    {
+      "id": "D-missing-shape",
+      "family": "D",
+      "deck": null,
+      "question": "What animation was applied to the shape named !!blk-z?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 260,
+      "score": 0,
+      "detail": "answered confidently when it should have abstained",
+      "found": [],
+      "missed": [],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What animation was applied to the shape named !!blk-z?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #9 | 11:19 AM | ○ | Built bw--swiss-bauhaus deck with officecli | ~139 |\n| #64 | ″ | ○ | Built dark--space-odyssey deck with officecli | ~290 |\n| #28 | ″ | ○ | Built dark--circle-digital deck with officecli | ~142 |\n| #1 | ″ | ○ | Built bw--brutalist-raw deck with officecli | ~182 |\n| #119 | 11:20 AM | ○ | Default transition is now morph | ~27 |\n| #2 | 11:19 AM | ○ | bw--brutalist-raw slide 1 build commands | ~357 |\n| #60 | ″ | ○ | Built dark--neon-productivity deck with officecli | ~293 |\n| #13 | ″ | ○ | bw--swiss-bauhaus slide 4 build commands | ~485 |\n| #14 | ″ | ○ | bw--swiss-bauhaus slide 5 build commands | ~501 |\n| #111 | ″ | ○ | Built warm--playful-organic deck with officecli | ~227 |\n| #7 | ″ | ○ | Built bw--mono-line deck with officecli | ~183 |\n| #109 | ″ | ○ | Built warm--earth-organic deck with officecli | ~221 |\n"
+    },
+    {
+      "id": "D-cherry-bold",
+      "family": "D",
+      "deck": null,
+      "question": "Which of these decks uses the Cherry Bold palette?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 255,
+      "score": 0,
+      "detail": "answered confidently when it should have abstained",
+      "found": [],
+      "missed": [],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"Which of these decks uses the Cherry Bold palette?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #96 | 11:19 AM | ○ | Built vivid--playful-marketing deck with officecli | ~114 |\n| #44 | ″ | ○ | Built dark--investor-pitch deck with officecli | ~104 |\n| #1 | ″ | ○ | Built bw--brutalist-raw deck with officecli | ~182 |\n| #113 | 11:20 AM | ○ | House accent colour set | ~20 |\n| #115 | ″ | ○ | House accent colour is now teal | ~35 |\n| #62 | 11:19 AM | ○ | Built dark--premium-navy deck with officecli | ~166 |\n| #90 | ″ | ○ | Built vivid--candy-stripe deck with officecli | ~194 |\n| #72 | ″ | ○ | Built light--bold-type deck with officecli | ~208 |\n| #78 | ″ | ○ | Built light--isometric-clean deck with officecli | ~125 |\n| #2 | ″ | ○ | bw--brutalist-raw slide 1 build commands | ~357 |\n| #86 | ″ | ○ | Built light--watercolor-wash deck with officecli | ~195 |\n| #111 | ″ | ○ | Built warm--playful-organic deck with officecli | ~227 |\n"
+    },
+    {
+      "id": "E-accent-current",
+      "family": "E",
+      "deck": null,
+      "question": "What is the current accent colour for the house deck style?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 270,
+      "score": 0,
+      "detail": "0/1 targets present",
+      "found": [],
+      "missed": [
+        "#0FB5A0"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What is the current accent colour for the house deck style?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #113 | 11:20 AM | ○ | House accent colour set | ~20 |\n| #115 | ″ | ○ | House accent colour is now teal | ~35 |\n| #114 | ″ | ○ | House accent colour revised | ~25 |\n| #62 | 11:19 AM | ○ | Built dark--premium-navy deck with officecli | ~166 |\n| #1 | ″ | ○ | Built bw--brutalist-raw deck with officecli | ~182 |\n| #44 | ″ | ○ | Built dark--investor-pitch deck with officecli | ~104 |\n| #111 | ″ | ○ | Built warm--playful-organic deck with officecli | ~227 |\n| #9 | ″ | ○ | Built bw--swiss-bauhaus deck with officecli | ~139 |\n| #22 | ″ | ○ | Built dark--blueprint-grid deck with officecli | ~234 |\n| #96 | ″ | ○ | Built vivid--playful-marketing deck with officecli | ~114 |\n| #86 | ″ | ○ | Built light--watercolor-wash deck with officecli | ~195 |\n| #58 | ″ | ○ | Built dark--luxury-minimal deck with officecli | ~173 |\n"
+    },
+    {
+      "id": "E-margin-current",
+      "family": "E",
+      "deck": null,
+      "question": "What slide margin are we using now?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 234,
+      "score": 0,
+      "detail": "0/1 targets present",
+      "found": [],
+      "missed": [
+        "1.5cm"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What slide margin are we using now?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #117 | 11:20 AM | ○ | Slide margin widened | ~21 |\n| #116 | ″ | ○ | Slide margin standard | ~16 |\n| #2 | 11:19 AM | ○ | bw--brutalist-raw slide 1 build commands | ~357 |\n| #1 | ″ | ○ | Built bw--brutalist-raw deck with officecli | ~182 |\n| #50 | ″ | ○ | dark--investor-pitch slide 6 build commands | ~574 |\n| #47 | ″ | ○ | dark--investor-pitch slide 3 build commands | ~54 |\n| #48 | ″ | ○ | dark--investor-pitch slide 4 build commands | ~54 |\n| #46 | ″ | ○ | dark--investor-pitch slide 2 build commands | ~54 |\n| #49 | ″ | ○ | dark--investor-pitch slide 5 build commands | ~54 |\n| #45 | ″ | ○ | dark--investor-pitch slide 1 build commands | ~59 |\n| #31 | ″ | ○ | dark--circle-digital slide 3 build commands | ~842 |\n| #32 | ″ | ○ | dark--circle-digital slide 4 build commands | ~740 |\n"
+    },
+    {
+      "id": "E-transition-current",
+      "family": "E",
+      "deck": null,
+      "question": "What is the current default slide transition for house decks?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 240,
+      "score": 0,
+      "detail": "1/1 targets present; returned SUPERSEDED value(s): fade",
+      "found": [
+        "fade"
+      ],
+      "missed": [],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What is the current default slide transition for house decks?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #118 | 11:20 AM | ○ | Default transition set to fade | ~21 |\n| #119 | ″ | ○ | Default transition is now morph | ~27 |\n| #47 | 11:19 AM | ○ | dark--investor-pitch slide 3 build commands | ~54 |\n| #2 | ″ | ○ | bw--brutalist-raw slide 1 build commands | ~357 |\n| #108 | ″ | ○ | warm--brand-refresh slide 5 build commands | ~619 |\n| #48 | ″ | ○ | dark--investor-pitch slide 4 build commands | ~54 |\n| #106 | ″ | ○ | warm--brand-refresh slide 3 build commands | ~568 |\n| #46 | ″ | ○ | dark--investor-pitch slide 2 build commands | ~54 |\n| #49 | ″ | ○ | dark--investor-pitch slide 5 build commands | ~54 |\n| #5 | ″ | ○ | bw--brutalist-raw slide 4 build commands | ~720 |\n| #4 | ″ | ○ | bw--brutalist-raw slide 3 build commands | ~535 |\n| #3 | ″ | ○ | bw--brutalist-raw slide 2 build commands | ~352 |\n"
+    },
+    {
+      "id": "E-old-decision",
+      "family": "E",
+      "deck": null,
+      "question": "How are finished decks archived?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 300,
+      "score": 0,
+      "detail": "0/1 targets present",
+      "found": [],
+      "missed": [
+        "PDF"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"How are finished decks archived?\" (12 obs, 0 sessions, 0 prompts)\n\n### May 15, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #120 | 11:20 AM | ○ | Deck archiving policy | ~29 |\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #2 | 11:19 AM | ○ | bw--brutalist-raw slide 1 build commands | ~357 |\n| #1 | ″ | ○ | Built bw--brutalist-raw deck with officecli | ~182 |\n| #41 | ″ | ○ | dark--diagonal-cut slide 1 build commands | ~715 |\n| #22 | ″ | ○ | Built dark--blueprint-grid deck with officecli | ~234 |\n| #78 | ″ | ○ | Built light--isometric-clean deck with officecli | ~125 |\n| #5 | ″ | ○ | bw--brutalist-raw slide 4 build commands | ~720 |\n| #45 | ″ | ○ | dark--investor-pitch slide 1 build commands | ~59 |\n| #26 | ″ | ○ | dark--blueprint-grid slide 4 build commands | ~571 |\n| #48 | ″ | ○ | dark--investor-pitch slide 4 build commands | ~54 |\n| #60 | ″ | ○ | Built dark--neon-productivity deck with officecli | ~293 |\n| #25 | ″ | ○ | dark--blueprint-grid slide 3 build commands | ~573 |\n"
+    },
+    {
+      "id": "F-slide-order",
+      "family": "F",
+      "deck": null,
+      "question": "What was corrected about slide order in these decks?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 233,
+      "score": 0,
+      "detail": "0/2 targets present",
+      "found": [],
+      "missed": [
+        "ask",
+        "last"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What was corrected about slide order in these decks?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #1 | 11:19 AM | ○ | Built bw--brutalist-raw deck with officecli | ~182 |\n| #50 | ″ | ○ | dark--investor-pitch slide 6 build commands | ~574 |\n| #5 | ″ | ○ | bw--brutalist-raw slide 4 build commands | ~720 |\n| #107 | ″ | ○ | warm--brand-refresh slide 4 build commands | ~673 |\n| #55 | ″ | ○ | dark--liquid-flow slide 4 build commands | ~711 |\n| #56 | ″ | ○ | dark--liquid-flow slide 5 build commands | ~714 |\n| #3 | ″ | ○ | bw--brutalist-raw slide 2 build commands | ~352 |\n| #57 | ″ | ○ | dark--liquid-flow slide 6 build commands | ~602 |\n| #108 | ″ | ○ | warm--brand-refresh slide 5 build commands | ~619 |\n| #53 | ″ | ○ | dark--liquid-flow slide 2 build commands | ~586 |\n| #102 | ″ | ○ | vivid--playful-marketing slide 6 build commands | ~615 |\n| #54 | ″ | ○ | dark--liquid-flow slide 3 build commands | ~700 |\n"
+    },
+    {
+      "id": "F-title-treatment",
+      "family": "F",
+      "deck": null,
+      "question": "What was rejected about the title treatment?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 236,
+      "score": 0,
+      "detail": "0/1 targets present",
+      "found": [],
+      "missed": [
+        "underline"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"What was rejected about the title treatment?\" (12 obs, 0 sessions, 0 prompts)\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #122 | 11:20 AM | ○ | KM correction: title treatment | ~31 |\n| #2 | 11:19 AM | ○ | bw--brutalist-raw slide 1 build commands | ~357 |\n| #1 | ″ | ○ | Built bw--brutalist-raw deck with officecli | ~182 |\n| #121 | 11:20 AM | ○ | KM correction: slide order | ~28 |\n| #72 | 11:19 AM | ○ | Built light--bold-type deck with officecli | ~208 |\n| #66 | ″ | ○ | Built dark--spotlight-stage deck with officecli | ~118 |\n| #118 | 11:20 AM | ○ | Default transition set to fade | ~21 |\n| #5 | 11:19 AM | ○ | bw--brutalist-raw slide 4 build commands | ~720 |\n| #3 | ″ | ○ | bw--brutalist-raw slide 2 build commands | ~352 |\n| #6 | ″ | ○ | bw--brutalist-raw slide 5 build commands | ~435 |\n| #4 | ″ | ○ | bw--brutalist-raw slide 3 build commands | ~535 |\n| #76 | ″ | ○ | light--bold-type slide 4 build commands | ~765 |\n"
+    },
+    {
+      "id": "F-never-again",
+      "family": "F",
+      "deck": null,
+      "question": "Is there anything we were told never to do again in these decks?",
+      "route": "search",
+      "retrieved": 1,
+      "latencyMs": 264,
+      "score": 0,
+      "detail": "0/1 targets present",
+      "found": [],
+      "missed": [
+        "emoji"
+      ],
+      "falseClaims": [],
+      "answer": "Found 12 result(s) matching \"Is there anything we were told never to do again in these decks?\" (12 obs, 0 sessions, 0 prompts)\n\n### May 15, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #120 | 11:20 AM | ○ | Deck archiving policy | ~29 |\n\n### Sep 12, 2026\n\n**General**\n| ID | Time | T | Title | Read |\n|----|------|---|-------|------|\n| #2 | 11:19 AM | ○ | bw--brutalist-raw slide 1 build commands | ~357 |\n| #1 | ″ | ○ | Built bw--brutalist-raw deck with officecli | ~182 |\n| #115 | 11:20 AM | ○ | House accent colour is now teal | ~35 |\n| #113 | ″ | ○ | House accent colour set | ~20 |\n| #22 | 11:19 AM | ○ | Built dark--blueprint-grid deck with officecli | ~234 |\n| #100 | ″ | ○ | vivid--playful-marketing slide 4 build commands | ~56 |\n| #101 | ″ | ○ | vivid--playful-marketing slide 5 build commands | ~56 |\n| #99 | ″ | ○ | vivid--playful-marketing slide 3 build commands | ~56 |\n| #98 | ″ | ○ | vivid--playful-marketing slide 2 build commands | ~56 |\n| #41 | ″ | ○ | dark--diagonal-cut slide 1 build commands | ~715 |\n| #48 | ″ | ○ | dark--investor-pitch slide 4 build commands | ~54 |\n"
+    }
+  ]
+}
