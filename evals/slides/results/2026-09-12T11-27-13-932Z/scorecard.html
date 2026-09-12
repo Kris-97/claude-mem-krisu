@@ -74,7 +74,14 @@
   .fam__pct { font-family:var(--mono); font-size:1.65rem; font-weight:600; line-height:1; }
   .fam__unit { font-size:.9rem; color:var(--muted); }
   .fam__n { font-family:var(--mono); font-size:.7rem; color:var(--muted); margin-top:3px; }
-  .fam__meter { grid-column:1/-1; height:3px; background:var(--surface-2); margin-top:12px; }
+  .fam__base { display:inline-flex; align-items:baseline; gap:6px; margin-top:6px;
+    font-family:var(--mono); font-size:.72rem; color:var(--muted); }
+  .fam__base b { color:var(--ink-2); font-weight:600; }
+  .fam__delta { color:var(--accent); }
+  .fam__meter { grid-column:1/-1; height:3px; background:var(--surface-2);
+    margin-top:12px; position:relative; }
+  .fam__basemark { position:absolute; top:-3px; bottom:-3px; width:2px;
+    background:var(--ink); opacity:.55; }
   .fam__fill { height:100%; background:var(--accent); }
   .fam--pass .fam__fill { background:var(--pass); }
   .fam--partial .fam__fill { background:var(--partial); }
@@ -145,6 +152,9 @@
       therefore measures <em>retrieval only</em> &mdash; proof that search finds and ranks the right memory,
       not proof that a real session would have recorded it. The organic-capture run is the other half of
       that picture, and it is the one that disappoints.</p>
+    <p style="margin-top:10px">Every family also carries an <strong>empty-database baseline</strong>: the
+      same bank run against a wiped memory. It is the score this suite gives for model priors alone, and
+      the tick on each bar marks it. A family whose score sits near its baseline is not reading memory.</p>
   </div>
 
   <h2 class="sec">Scores by family</h2>
@@ -155,6 +165,7 @@
           <h3>Pinpoint provenance</h3>
           <p class="fam__q">What code built this shape?</p>
           <p class="fam__method">target recall over search &rarr; fetch</p>
+          <span class="fam__base">empty-db baseline <b>6%</b><span class="fam__delta">+94</span></span>
         </div>
         <div class="fam__score">
           <span class="fam__pct">100<span class="fam__unit">%</span></span>
@@ -162,6 +173,7 @@
         </div>
         <div class="fam__meter" role="img" aria-label="100 percent">
           <div class="fam__fill" style="width:100%"></div>
+          <div class="fam__basemark" style="left:6%"></div>
         </div>
       </li>
       <li class="fam fam--fail">
@@ -170,6 +182,7 @@
           <h3>Taste synthesis</h3>
           <p class="fam__q">What taste runs through all the decks?</p>
           <p class="fam__method">reference-term coverage of the corpus answer</p>
+          <span class="fam__base">empty-db baseline <b>18%</b><span class="fam__delta">+13</span></span>
         </div>
         <div class="fam__score">
           <span class="fam__pct">31<span class="fam__unit">%</span></span>
@@ -177,6 +190,7 @@
         </div>
         <div class="fam__meter" role="img" aria-label="31 percent">
           <div class="fam__fill" style="width:31%"></div>
+          <div class="fam__basemark" style="left:18%"></div>
         </div>
       </li>
       <li class="fam fam--pass">
@@ -185,6 +199,7 @@
           <h3>Style coverage</h3>
           <p class="fam__q">Which style elements are actually used?</p>
           <p class="fam__method">set recall, plus false-claim count</p>
+          <span class="fam__base">empty-db baseline <b>1%</b><span class="fam__delta">+87</span></span>
         </div>
         <div class="fam__score">
           <span class="fam__pct">88<span class="fam__unit">%</span></span>
@@ -192,6 +207,7 @@
         </div>
         <div class="fam__meter" role="img" aria-label="88 percent">
           <div class="fam__fill" style="width:88%"></div>
+          <div class="fam__basemark" style="left:1%"></div>
         </div>
       </li>
       <li class="fam fam--fail">
@@ -200,6 +216,7 @@
           <h3>Abstention</h3>
           <p class="fam__q">Does it admit when it knows nothing?</p>
           <p class="fam__method">1.0 = correctly reported nothing known</p>
+          <span class="fam__base">empty-db baseline <b>75%</b><span class="fam__delta">-75</span></span>
         </div>
         <div class="fam__score">
           <span class="fam__pct">0<span class="fam__unit">%</span></span>
@@ -207,6 +224,7 @@
         </div>
         <div class="fam__meter" role="img" aria-label="0 percent">
           <div class="fam__fill" style="width:0%"></div>
+          <div class="fam__basemark" style="left:75%"></div>
         </div>
       </li>
       <li class="fam fam--fail">
@@ -215,6 +233,7 @@
           <h3>Recency / supersession</h3>
           <p class="fam__q">Is the answer the current one?</p>
           <p class="fam__method">current value present AND superseded absent</p>
+          <span class="fam__base">empty-db baseline <b>0%</b><span class="fam__delta">+25</span></span>
         </div>
         <div class="fam__score">
           <span class="fam__pct">25<span class="fam__unit">%</span></span>
@@ -222,6 +241,7 @@
         </div>
         <div class="fam__meter" role="img" aria-label="25 percent">
           <div class="fam__fill" style="width:25%"></div>
+          <div class="fam__basemark" style="left:0%"></div>
         </div>
       </li>
       <li class="fam fam--partial">
@@ -230,6 +250,7 @@
           <h3>Correction adherence</h3>
           <p class="fam__q">Are corrections retrievable later?</p>
           <p class="fam__method">target recall over search &rarr; fetch</p>
+          <span class="fam__base">empty-db baseline <b>0%</b><span class="fam__delta">+50</span></span>
         </div>
         <div class="fam__score">
           <span class="fam__pct">50<span class="fam__unit">%</span></span>
@@ -237,14 +258,16 @@
         </div>
         <div class="fam__meter" role="img" aria-label="50 percent">
           <div class="fam__fill" style="width:50%"></div>
+          <div class="fam__basemark" style="left:0%"></div>
         </div>
       </li></ul>
 
   <h2 class="sec">What the run actually shows</h2>
   <ol class="findings">
       <li><h3>Retrieval works. Capture is the weak link.</h3><p>With the deck facts present in memory, provenance questions score 100% and style coverage 88%: search finds the right memory and ranks it first. But seeding the same 27 decks through the real capture path produced only 2 observations and 4 session summaries from 10 slide-build events - the observer compresses mechanical build work down to deck-level prose and discards the per-shape coordinates. So the gap between these two numbers is not a search problem to tune; it is work that memory never recorded.</p></li>
-      <li><h3>It never says &ldquo;I don't know.&rdquo;</h3><p>All four unanswerable questions returned 12 confident-looking hits. Top-k search cannot itself signal an empty result, so a question about a slide that does not exist looks exactly like a question about one that does. Anything built on this needs its own abstention step - the retrieval layer will not provide one.</p></li>
-      <li><h3>Superseded decisions come back alongside current ones.</h3><p>Asked for the current accent colour, memory returned the current value together with both retired ones, with nothing marking which is live. For deck work this is the failure that does active damage: a template changed twice still answers with its first version.</p></li></ol>
+      <li><h3>A populated memory <em>suppresses</em> abstention entirely.</h3><p>Against an empty database the system correctly reports it knows nothing 75% of the time. Add the deck corpus and that collapses to 0%: all four unanswerable questions came back with 12 confident-looking hits. It is not that the system cannot abstain - it is that any retrieved results, however irrelevant, stop it from doing so. A question about a slide that does not exist is therefore indistinguishable from one about a slide that does, and anything built on this needs its own abstention step.</p></li>
+      <li><h3>Superseded decisions come back alongside current ones.</h3><p>Asked for the current accent colour, memory returned the current value together with both retired ones, with nothing marking which is live. For deck work this is the failure that does active damage: a template changed twice still answers with its first version.</p></li>
+      <li><h3>The taste answer is mostly the model talking, not memory.</h3><p>Family B scores 31% with the full corpus - but 18% with an <em>empty</em> database, because a fluent generic answer about minimalism and restraint still hits many of the same reference terms. Only about 13 points of that score is attributable to memory. Of the six families this is the one whose headline number most overstates what the system actually knows.</p></li></ol>
 
   <h2 class="sec">Every question</h2>
   

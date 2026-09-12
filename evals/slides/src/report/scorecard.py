@@ -4,7 +4,7 @@
 Static rather than client-rendered on purpose: the page must be complete in its
 first still frame, which is what a shared link and a thumbnail both get.
 
-    python3 scorecard.py <results-dir> <out.html>
+    python3 scorecard.py <results-dir> <out.html> [<empty-db-baseline-dir>]
 """
 import html
 import json
@@ -34,15 +34,22 @@ FINDINGS = [
      "observer compresses mechanical build work down to deck-level prose and discards the per-shape "
      "coordinates. So the gap between these two numbers is not a search problem to tune; it is work that "
      "memory never recorded."),
-    ("It never says &ldquo;I don't know.&rdquo;",
-     "All four unanswerable questions returned 12 confident-looking hits. Top-k search cannot itself signal "
-     "an empty result, so a question about a slide that does not exist looks exactly like a question about "
-     "one that does. Anything built on this needs its own abstention step - the retrieval layer will not "
-     "provide one."),
+    ("A populated memory <em>suppresses</em> abstention entirely.",
+     "Against an empty database the system correctly reports it knows nothing 75% of the time. Add the "
+     "deck corpus and that collapses to 0%: all four unanswerable questions came back with 12 "
+     "confident-looking hits. It is not that the system cannot abstain - it is that any retrieved results, "
+     "however irrelevant, stop it from doing so. A question about a slide that does not exist is therefore "
+     "indistinguishable from one about a slide that does, and anything built on this needs its own "
+     "abstention step."),
     ("Superseded decisions come back alongside current ones.",
      "Asked for the current accent colour, memory returned the current value together with both retired "
      "ones, with nothing marking which is live. For deck work this is the failure that does active damage: "
      "a template changed twice still answers with its first version."),
+    ("The taste answer is mostly the model talking, not memory.",
+     "Family B scores 31% with the full corpus - but 18% with an <em>empty</em> database, because a fluent "
+     "generic answer about minimalism and restraint still hits many of the same reference terms. Only "
+     "about 13 points of that score is attributable to memory. Of the six families this is the one whose "
+     "headline number most overstates what the system actually knows."),
 ]
 
 
@@ -58,11 +65,12 @@ def band(score):
     return "fail"
 
 
-def render(report):
+def render(report, baseline=None):
     m = report["metadata"]
     by_family = report["byFamily"]
     results = report["results"]
     chroma = m.get("chromaLive")
+    base_by_family = (baseline or {}).get("byFamily", {})
 
     rows = []
     for key, (name, question, method) in FAMILIES.items():
@@ -70,6 +78,20 @@ def render(report):
         if not stats:
             continue
         pct = round(stats["mean"] * 100)
+
+        # The empty-database baseline is what this family scores on model priors
+        # alone. Printing it next to the score is the difference between "31%"
+        # and "31%, of which 18 points is the model talking".
+        base_html = ""
+        base_mark = ""
+        b = base_by_family.get(key)
+        if b is not None:
+            bpct = round(b["mean"] * 100)
+            delta = pct - bpct
+            base_html = (f'<span class="fam__base">empty-db baseline <b>{bpct}%</b>'
+                         f'<span class="fam__delta">{delta:+d}</span></span>')
+            base_mark = f'<div class="fam__basemark" style="left:{bpct}%"></div>'
+
         rows.append(f"""
       <li class="fam fam--{band(stats['mean'])}">
         <div class="fam__id">{esc(key)}</div>
@@ -77,6 +99,7 @@ def render(report):
           <h3>{name}</h3>
           <p class="fam__q">{question}</p>
           <p class="fam__method">{method}</p>
+          {base_html}
         </div>
         <div class="fam__score">
           <span class="fam__pct">{pct}<span class="fam__unit">%</span></span>
@@ -84,6 +107,7 @@ def render(report):
         </div>
         <div class="fam__meter" role="img" aria-label="{pct} percent">
           <div class="fam__fill" style="width:{pct}%"></div>
+          {base_mark}
         </div>
       </li>""")
 
@@ -203,7 +227,14 @@ def render(report):
   .fam__pct {{ font-family:var(--mono); font-size:1.65rem; font-weight:600; line-height:1; }}
   .fam__unit {{ font-size:.9rem; color:var(--muted); }}
   .fam__n {{ font-family:var(--mono); font-size:.7rem; color:var(--muted); margin-top:3px; }}
-  .fam__meter {{ grid-column:1/-1; height:3px; background:var(--surface-2); margin-top:12px; }}
+  .fam__base {{ display:inline-flex; align-items:baseline; gap:6px; margin-top:6px;
+    font-family:var(--mono); font-size:.72rem; color:var(--muted); }}
+  .fam__base b {{ color:var(--ink-2); font-weight:600; }}
+  .fam__delta {{ color:var(--accent); }}
+  .fam__meter {{ grid-column:1/-1; height:3px; background:var(--surface-2);
+    margin-top:12px; position:relative; }}
+  .fam__basemark {{ position:absolute; top:-3px; bottom:-3px; width:2px;
+    background:var(--ink); opacity:.55; }}
   .fam__fill {{ height:100%; background:var(--accent); }}
   .fam--pass .fam__fill {{ background:var(--pass); }}
   .fam--partial .fam__fill {{ background:var(--partial); }}
@@ -274,6 +305,9 @@ def render(report):
       therefore measures <em>retrieval only</em> &mdash; proof that search finds and ranks the right memory,
       not proof that a real session would have recorded it. The organic-capture run is the other half of
       that picture, and it is the one that disappoints.</p>
+    <p style="margin-top:10px">Every family also carries an <strong>empty-database baseline</strong>: the
+      same bank run against a wiped memory. It is the score this suite gives for model priors alone, and
+      the tick on each bar marks it. A family whose score sits near its baseline is not reading memory.</p>
   </div>
 
   <h2 class="sec">Scores by family</h2>
@@ -301,7 +335,10 @@ def main():
     results_dir = Path(sys.argv[1])
     out = Path(sys.argv[2])
     report = json.loads((results_dir / "report.json").read_text())
-    out.write_text(render(report))
+    baseline = None
+    if len(sys.argv) > 3:
+        baseline = json.loads((Path(sys.argv[3]) / "report.json").read_text())
+    out.write_text(render(report, baseline))
     print(f"wrote {out}")
 
 

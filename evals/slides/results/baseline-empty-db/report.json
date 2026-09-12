@@ -1,0 +1,706 @@
+{
+  "metadata": {
+    "timestamp": "2026-09-12T11:49:03.279Z",
+    "project": "evalproj",
+    "chromaLive": true,
+    "decksTraced": 27,
+    "commandsTraced": 3582,
+    "corpusUsed": true,
+    "scoringNote": "Family B uses deterministic reference-term coverage as a proxy for the LLM judge; full answers are included so the judgement stays inspectable."
+  },
+  "byFamily": {
+    "A": {
+      "n": 9,
+      "mean": 0.06349206349206349
+    },
+    "B": {
+      "n": 4,
+      "mean": 0.18000000000000002
+    },
+    "C": {
+      "n": 4,
+      "mean": 0.01
+    },
+    "D": {
+      "n": 4,
+      "mean": 0.75
+    },
+    "E": {
+      "n": 4,
+      "mean": 0
+    },
+    "F": {
+      "n": 3,
+      "mean": 0
+    }
+  },
+  "results": [
+    {
+      "id": "A-bw--brutalist-raw-shape",
+      "family": "A",
+      "deck": "bw--brutalist-raw",
+      "question": "In the \"bw--brutalist-raw\" deck, what officecli command created the shape named !!border-box, and what properties did it set?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 10479,
+      "score": 0.14285714285714285,
+      "detail": "1/7 targets present",
+      "found": [
+        "!!border-box"
+      ],
+      "missed": [
+        "add",
+        "FFFFFF",
+        "20cm",
+        "2cm",
+        "10cm",
+        "8cm"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"In the \"bw--brutalist-raw\" deck, what officecli command created the shape named !!border-box, and what properties did it set?\"\n\n"
+    },
+    {
+      "id": "A-bw--brutalist-raw-fill",
+      "family": "A",
+      "deck": "bw--brutalist-raw",
+      "question": "What fill colours were used in the \"bw--brutalist-raw\" deck?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 396,
+      "score": 0,
+      "detail": "0/4 targets present",
+      "found": [],
+      "missed": [
+        "FFFFFF",
+        "000000",
+        "FF0000",
+        "none"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"What fill colours were used in the \"bw--brutalist-raw\" deck?\"\n\n"
+    },
+    {
+      "id": "A-bw--mono-line-shape",
+      "family": "A",
+      "deck": "bw--mono-line",
+      "question": "In the \"bw--mono-line\" deck, what officecli command created the shape named !!line-h-top, and what properties did it set?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 251,
+      "score": 0.14285714285714285,
+      "detail": "1/7 targets present",
+      "found": [
+        "!!line-h-top"
+      ],
+      "missed": [
+        "add",
+        "1A1A1A",
+        "0cm",
+        "1.5cm",
+        "20cm",
+        "0.05cm"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"In the \"bw--mono-line\" deck, what officecli command created the shape named !!line-h-top, and what properties did it set?\"\n\n"
+    },
+    {
+      "id": "A-bw--mono-line-fill",
+      "family": "A",
+      "deck": "bw--mono-line",
+      "question": "What fill colours were used in the \"bw--mono-line\" deck?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 244,
+      "score": 0,
+      "detail": "0/3 targets present",
+      "found": [],
+      "missed": [
+        "1A1A1A",
+        "C8C8C8",
+        "none"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"What fill colours were used in the \"bw--mono-line\" deck?\"\n\n"
+    },
+    {
+      "id": "A-bw--swiss-bauhaus-shape",
+      "family": "A",
+      "deck": "bw--swiss-bauhaus",
+      "question": "In the \"bw--swiss-bauhaus\" deck, what officecli command created the shape named !!blk-a, and what properties did it set?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 246,
+      "score": 0.14285714285714285,
+      "detail": "1/7 targets present",
+      "found": [
+        "!!blk-a"
+      ],
+      "missed": [
+        "add",
+        "E63322",
+        "0cm",
+        "0cm",
+        "14cm",
+        "19.05cm"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"In the \"bw--swiss-bauhaus\" deck, what officecli command created the shape named !!blk-a, and what properties did it set?\"\n\n"
+    },
+    {
+      "id": "A-bw--swiss-bauhaus-fill",
+      "family": "A",
+      "deck": "bw--swiss-bauhaus",
+      "question": "What fill colours were used in the \"bw--swiss-bauhaus\" deck?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 246,
+      "score": 0,
+      "detail": "0/5 targets present",
+      "found": [],
+      "missed": [
+        "E63322",
+        "1C1C1C",
+        "F5F5F5",
+        "999999",
+        "666666"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"What fill colours were used in the \"bw--swiss-bauhaus\" deck?\"\n\n"
+    },
+    {
+      "id": "A-dark--architectural-plan-shape",
+      "family": "A",
+      "deck": "dark--architectural-plan",
+      "question": "In the \"dark--architectural-plan\" deck, what officecli command created the shape named !!bg-panel, and what properties did it set?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 226,
+      "score": 0.14285714285714285,
+      "detail": "1/7 targets present",
+      "found": [
+        "!!bg-panel"
+      ],
+      "missed": [
+        "add",
+        "B5D5E3",
+        "20.87cm",
+        "0cm",
+        "13cm",
+        "19.1cm"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"In the \"dark--architectural-plan\" deck, what officecli command created the shape named !!bg-panel, and what properties did it set?\"\n\n"
+    },
+    {
+      "id": "A-dark--architectural-plan-fill",
+      "family": "A",
+      "deck": "dark--architectural-plan",
+      "question": "What fill colours were used in the \"dark--architectural-plan\" deck?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 245,
+      "score": 0,
+      "detail": "0/5 targets present",
+      "found": [],
+      "missed": [
+        "B5D5E3",
+        "4F92B0",
+        "E3F1F8",
+        "none",
+        "FEF0C0"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"What fill colours were used in the \"dark--architectural-plan\" deck?\"\n\n"
+    },
+    {
+      "id": "A-transition",
+      "family": "A",
+      "deck": "bw--brutalist-raw",
+      "question": "What slide transition was configured in the \"bw--brutalist-raw\" deck?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 237,
+      "score": 0,
+      "detail": "0/1 targets present",
+      "found": [],
+      "missed": [
+        "morph"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"What slide transition was configured in the \"bw--brutalist-raw\" deck?\"\n\n"
+    },
+    {
+      "id": "B-prevalent-taste",
+      "family": "B",
+      "deck": null,
+      "question": "What taste is prevalent across all these slides?",
+      "route": "corpus",
+      "retrieved": 1,
+      "latencyMs": 10189,
+      "score": 0.12,
+      "detail": "3/25 targets present",
+      "found": [
+        "corpus",
+        "reference",
+        "slides"
+      ],
+      "missed": [
+        "officecli-built",
+        "decks",
+        "Colour",
+        "tight",
+        "per-deck",
+        "palette",
+        "distinct",
+        "fills",
+        "applied",
+        "opacity",
+        "depth",
+        "extra",
+        "Typography",
+        "small",
+        "families",
+        "Arial",
+        "Black",
+        "Courier",
+        "Segoe",
+        "Light",
+        "Inter",
+        "heading"
+      ],
+      "falseClaims": [],
+      "answer": "I cannot answer this question because the **slides-eval corpus contains 0 observations**—there are no slides or slide content available for me to analyze.\n\nTo answer your question about taste prevalence across the slides, I would need:\n- Actual observations/data from the corpus to reference\n- Content describing the slides and their characteristics\n\n**Please provide observations to the corpus first.** Once populated, I'll be able to identify and cite the prevalent taste or themes across the slides."
+    },
+    {
+      "id": "B-colour-discipline",
+      "family": "B",
+      "deck": null,
+      "question": "What is the colour discipline across the decks — how many colours per deck, and how are they used?",
+      "route": "corpus",
+      "retrieved": 1,
+      "latencyMs": 10187,
+      "score": 0.28,
+      "detail": "7/25 targets present",
+      "found": [
+        "corpus",
+        "reference",
+        "decks",
+        "slides",
+        "Colour",
+        "palette",
+        "applied"
+      ],
+      "missed": [
+        "officecli-built",
+        "tight",
+        "per-deck",
+        "distinct",
+        "fills",
+        "opacity",
+        "depth",
+        "extra",
+        "Typography",
+        "small",
+        "families",
+        "Arial",
+        "Black",
+        "Courier",
+        "Segoe",
+        "Light",
+        "Inter",
+        "heading"
+      ],
+      "falseClaims": [],
+      "answer": "I cannot answer your question about colour discipline across the decks because the \"slides-eval\" corpus contains **0 observations**.\n\nThere is no data available for me to reference regarding:\n- The number of colours used per deck\n- How colours are applied or used across the decks\n- Any deck composition or design specifications\n\n**To answer your question, I would need:**\n- Observations containing deck specifications, design guidelines, or visual documentation\n- Information about colour palettes, usage patterns, and constraints across the reference decks\n\nPlease provide observations or documentation to the corpus, and I'll be able to analyze the colour discipline and cite specific sources."
+    },
+    {
+      "id": "B-typography",
+      "family": "B",
+      "deck": null,
+      "question": "What typographic posture is consistent across the decks?",
+      "route": "corpus",
+      "retrieved": 1,
+      "latencyMs": 10053,
+      "score": 0.16,
+      "detail": "4/25 targets present",
+      "found": [
+        "corpus",
+        "decks",
+        "slides",
+        "Typography"
+      ],
+      "missed": [
+        "officecli-built",
+        "reference",
+        "Colour",
+        "tight",
+        "per-deck",
+        "palette",
+        "distinct",
+        "fills",
+        "applied",
+        "opacity",
+        "depth",
+        "extra",
+        "small",
+        "families",
+        "Arial",
+        "Black",
+        "Courier",
+        "Segoe",
+        "Light",
+        "Inter",
+        "heading"
+      ],
+      "falseClaims": [],
+      "answer": "I cannot answer this question. \n\nThe \"slides-eval\" corpus contains **0 observations**, so I have no data about any decks or their typographic characteristics. Without observations about the deck builds or slide evaluations, I cannot identify what typographic posture—if any—is consistent across them.\n\nTo answer your question, I would need observations that include:\n- Information about the decks being evaluated\n- Details about typography, font choices, or typographic styling used across them\n- Analysis of consistent design patterns\n\nPlease provide relevant observations from the corpus, and I'll be happy to address your question."
+    },
+    {
+      "id": "B-house-rules",
+      "family": "B",
+      "deck": null,
+      "question": "If you were to build a new deck in this house style, what five rules would you follow? Be specific to these decks.",
+      "route": "corpus",
+      "retrieved": 1,
+      "latencyMs": 12735,
+      "score": 0.16,
+      "detail": "4/25 targets present",
+      "found": [
+        "corpus",
+        "reference",
+        "decks",
+        "slides"
+      ],
+      "missed": [
+        "officecli-built",
+        "Colour",
+        "tight",
+        "per-deck",
+        "palette",
+        "distinct",
+        "fills",
+        "applied",
+        "opacity",
+        "depth",
+        "extra",
+        "Typography",
+        "small",
+        "families",
+        "Arial",
+        "Black",
+        "Courier",
+        "Segoe",
+        "Light",
+        "Inter",
+        "heading"
+      ],
+      "falseClaims": [],
+      "answer": "I cannot provide specific rules for this house style because **there are no observations in the slides-eval corpus** to base this answer on.\n\nTo give you five specific, meaningful rules for building decks in this house style, I would need:\n\n- **Examples of existing decks** in the corpus showing the established patterns\n- **Visual or stylistic guidelines** that define the house style\n- **Build principles** that have been documented\n- **Reference materials** about what makes these decks consistent\n\nSince the corpus is empty (0 observations), I have no source material to draw from.\n\n---\n\n**What I can do instead:**\n\nIf you can provide observations or examples of:\n- Reference deck builds from this project\n- Style guidelines or design principles\n- Sample slides or deck structures\n\n...then I can analyze those and derive specific, evidence-based rules tailored to this particular house style.\n\nWould you like to add observations to the corpus so I can give you an informed answer?"
+    },
+    {
+      "id": "C-style-elements",
+      "family": "C",
+      "deck": null,
+      "question": "What style elements are used across these decks? List the shape and slide properties that were actually set.",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 282,
+      "score": 0.04,
+      "detail": "recall 1/25",
+      "found": [
+        "y"
+      ],
+      "missed": [
+        "align",
+        "background",
+        "bold",
+        "color",
+        "fill",
+        "font",
+        "geometry",
+        "height",
+        "layout",
+        "line",
+        "lineOpacity",
+        "lineSpacing",
+        "lineWidth",
+        "margin",
+        "name",
+        "opacity",
+        "preset",
+        "rotation",
+        "size",
+        "text",
+        "transition",
+        "valign",
+        "width",
+        "x"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"What style elements are used across these decks? List the shape and slide properties that were actually set.\"\n\n"
+    },
+    {
+      "id": "C-fonts",
+      "family": "C",
+      "deck": null,
+      "question": "What fonts appear across the decks?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 228,
+      "score": 0,
+      "detail": "recall 0/17",
+      "found": [],
+      "missed": [
+        "Arial",
+        "Arial Black",
+        "Courier New",
+        "Georgia",
+        "Helvetica",
+        "Inter",
+        "LXGW WenKai",
+        "Microsoft YaHei",
+        "Montserrat",
+        "Montserrat Bold",
+        "Noto Serif",
+        "PingFang SC",
+        "Segoe UI",
+        "Segoe UI Black",
+        "Segoe UI Light",
+        "思源黑体",
+        "苹方-简"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"What fonts appear across the decks?\"\n\n"
+    },
+    {
+      "id": "C-transitions",
+      "family": "C",
+      "deck": null,
+      "question": "What slide transition types are used across the decks?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 251,
+      "score": 0,
+      "detail": "recall 0/1",
+      "found": [],
+      "missed": [
+        "morph"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"What slide transition types are used across the decks?\"\n\n"
+    },
+    {
+      "id": "C-bw--swiss-bauhaus-props",
+      "family": "C",
+      "deck": "bw--swiss-bauhaus",
+      "question": "Which shape and slide properties were set when building the \"bw--swiss-bauhaus\" deck?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 259,
+      "score": 0,
+      "detail": "recall 0/15",
+      "found": [],
+      "missed": [
+        "background",
+        "bold",
+        "color",
+        "fill",
+        "font",
+        "height",
+        "layout",
+        "name",
+        "opacity",
+        "size",
+        "text",
+        "transition",
+        "width",
+        "x",
+        "y"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"Which shape and slide properties were set when building the \"bw--swiss-bauhaus\" deck?\"\n\n"
+    },
+    {
+      "id": "D-no-slide-9",
+      "family": "D",
+      "deck": null,
+      "question": "What code built slide 9's third quadrant in the swiss-bauhaus deck?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 226,
+      "score": 0,
+      "detail": "abstained but still asserted: quadrant",
+      "found": [
+        "quadrant"
+      ],
+      "missed": [],
+      "falseClaims": [],
+      "answer": "No results found matching \"What code built slide 9's third quadrant in the swiss-bauhaus deck?\"\n\n"
+    },
+    {
+      "id": "D-helvetica-licence",
+      "family": "D",
+      "deck": null,
+      "question": "What did we decide about the Helvetica Neue licensing for these decks?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 257,
+      "score": 1,
+      "detail": "correctly abstained",
+      "found": [],
+      "missed": [],
+      "falseClaims": [],
+      "answer": "No results found matching \"What did we decide about the Helvetica Neue licensing for these decks?\"\n\n"
+    },
+    {
+      "id": "D-missing-shape",
+      "family": "D",
+      "deck": null,
+      "question": "What animation was applied to the shape named !!blk-z?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 245,
+      "score": 1,
+      "detail": "correctly abstained",
+      "found": [],
+      "missed": [],
+      "falseClaims": [],
+      "answer": "No results found matching \"What animation was applied to the shape named !!blk-z?\"\n\n"
+    },
+    {
+      "id": "D-cherry-bold",
+      "family": "D",
+      "deck": null,
+      "question": "Which of these decks uses the Cherry Bold palette?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 251,
+      "score": 1,
+      "detail": "correctly abstained",
+      "found": [],
+      "missed": [],
+      "falseClaims": [],
+      "answer": "No results found matching \"Which of these decks uses the Cherry Bold palette?\"\n\n"
+    },
+    {
+      "id": "E-accent-current",
+      "family": "E",
+      "deck": null,
+      "question": "What is the current accent colour for the house deck style?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 244,
+      "score": 0,
+      "detail": "0/1 targets present",
+      "found": [],
+      "missed": [
+        "#0FB5A0"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"What is the current accent colour for the house deck style?\"\n\n"
+    },
+    {
+      "id": "E-margin-current",
+      "family": "E",
+      "deck": null,
+      "question": "What slide margin are we using now?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 243,
+      "score": 0,
+      "detail": "0/1 targets present",
+      "found": [],
+      "missed": [
+        "1.5cm"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"What slide margin are we using now?\"\n\n"
+    },
+    {
+      "id": "E-transition-current",
+      "family": "E",
+      "deck": null,
+      "question": "What is the current default slide transition for house decks?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 229,
+      "score": 0,
+      "detail": "0/1 targets present",
+      "found": [],
+      "missed": [
+        "morph"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"What is the current default slide transition for house decks?\"\n\n"
+    },
+    {
+      "id": "E-old-decision",
+      "family": "E",
+      "deck": null,
+      "question": "How are finished decks archived?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 214,
+      "score": 0,
+      "detail": "0/1 targets present",
+      "found": [],
+      "missed": [
+        "PDF"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"How are finished decks archived?\"\n\n"
+    },
+    {
+      "id": "F-slide-order",
+      "family": "F",
+      "deck": null,
+      "question": "What was corrected about slide order in these decks?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 226,
+      "score": 0,
+      "detail": "0/2 targets present",
+      "found": [],
+      "missed": [
+        "ask",
+        "last"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"What was corrected about slide order in these decks?\"\n\n"
+    },
+    {
+      "id": "F-title-treatment",
+      "family": "F",
+      "deck": null,
+      "question": "What was rejected about the title treatment?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 459,
+      "score": 0,
+      "detail": "0/1 targets present",
+      "found": [],
+      "missed": [
+        "underline"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"What was rejected about the title treatment?\"\n\n"
+    },
+    {
+      "id": "F-never-again",
+      "family": "F",
+      "deck": null,
+      "question": "Is there anything we were told never to do again in these decks?",
+      "route": "search",
+      "retrieved": 0,
+      "latencyMs": 239,
+      "score": 0,
+      "detail": "0/1 targets present",
+      "found": [],
+      "missed": [
+        "emoji"
+      ],
+      "falseClaims": [],
+      "answer": "No results found matching \"Is there anything we were told never to do again in these decks?\"\n\n"
+    }
+  ]
+}
