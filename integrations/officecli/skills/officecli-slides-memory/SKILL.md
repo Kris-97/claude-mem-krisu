@@ -66,37 +66,67 @@ be corrected rather than silently re-applied:
 > problem → evidence → recommendation order from the March deck. Say if either
 > has moved on.
 
-## 3. Record, before you end the turn
+## 3. Record as you build — one memory per slide
 
-Write back what a future session would need and could not re-derive from the
-`.pptx` file itself. The reasons are the valuable part — the file already
-stores the result.
+**The deck is not finished until its provenance is recorded. This is a
+precondition for ending the turn, not a nice-to-have.**
+
+That wording is deliberate, and it is the result of a measurement rather than a
+preference. Automatic capture does not preserve this work: ten slide-build
+events run through claude-mem's real capture path produced two observations and
+four session summaries, all of them deck-level prose — "a cohesive design system
+built around a candy stripe pattern". Every `x`, `width`, fill and shape name
+was compressed away. So a later session asking *"what built `!!blk-a`?"* finds
+nothing, however good retrieval is. Anything you do not write down here is gone.
+
+### 3a. After each slide — the mechanical record
+
+Do this as part of the build loop, immediately after the slide's commands
+succeed, not once at the end when the detail has scrolled away:
 
 ```bash
 node <CLAUDE_MEM_OFFICECLI>/scripts/remember.mjs \
-  --project officecli \
-  --title "Evli co-invest deck: structure and template" \
-  --tag deck --tag evli \
-  "Built 14-slide co-invest deck from templates/evli-master.pptx (16:9).
-   Order: problem, market, evidence, co-invest mechanics, fees, ask.
-   Client asked to lead with evidence not market size - reversed slides 2/3.
-   Charts from the figure-library components, not native pptx charts, because
-   the native renderer loses the axis formatting on export."
+  --project officecli --tag deck --tag evli --tag slide-4 \
+  --title "Evli co-invest deck, slide 4: KPI row" \
+  "Slide 4 of decks/evli-co-invest.pptx (16:9, master templates/evli-master.pptx).
+   3-column KPI row, grid maths: col_width = (33.87 - 3 - 1.52) / 3 = 9.78cm,
+   x positions 1.5 / 12.04 / 22.58cm, cards y=4cm height=7cm.
+   Shapes: !!kpi-bg-1..3 (roundRect, fill 1E2761, line none),
+   #s4-num-1..3 (Georgia 60 bold, FFFFFF), #s4-sub-1..3 (Calibri 14, CADCFC).
+   Native pptx charts avoided - the renderer drops axis formatting on export."
 ```
 
-The installer rewrites `<CLAUDE_MEM_OFFICECLI>` to this machine's absolute
-integration path when it copies this file into the project, so in the installed
-copy the command above is runnable as written. Seeing the placeholder means you
-are reading the repo copy, not an installed one.
+Name these fields explicitly every time. Vague prose is precisely what the
+observer already produces, so a vague record adds nothing:
 
-Record at these moments, not only at the very end:
+- **deck file path**, aspect ratio, and template/master path
+- **slide number** and what the slide argues (pattern and recipe, if you used them)
+- **named shapes**, with their fills and geometry — these are the handles a
+  future question will use, since there is no object boundary around a "card"
+- **grid maths**, written as the arithmetic, not just the result: the next deck
+  reuses the formula, not the centimetres
+- **palette as role → hex** (primary/secondary/accent/text/muted) and the
+  **font pairing**
+
+### 3b. Whenever they happen — the decisions
+
+Separately from the mechanical record, write one memory each time:
 
 - a **template, master or brand decision** is made or overridden
 - the user **corrects** you ("no, we always put the ask last") — corrections are
   the highest-value memories in the database, because they encode a preference
-  no file records
+  no file records. Record the correction itself, not the corrected result.
 - a **workaround** is found (a renderer bug, an export quirk, a font that fails)
 - the deck is **delivered** — one memory naming the file, audience and outcome
+
+The installer rewrites `<CLAUDE_MEM_OFFICECLI>` to this machine's absolute
+integration path when it copies this file into the project, so in the installed
+copy the commands above are runnable as written. Seeing the placeholder means you
+are reading the repo copy, not an installed one.
+
+Do not record the literal slide text — it is in the `.pptx`, and `officecli dump
+<deck> /slide[N]` recovers the structure. Record what the file cannot tell you:
+the geometry decisions, the reasons, and the corrections.
 
 Do not record: the literal slide text (it is in the file), routine tool syntax,
 or anything the user asked to keep out of memory.
