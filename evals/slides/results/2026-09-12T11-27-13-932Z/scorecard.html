@@ -1,0 +1,510 @@
+<title>Slides Memory Scorecard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=IBM+Plex+Mono:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --ground:#F5F7F8; --surface:#FFFFFF; --surface-2:#EDF1F3;
+    --ink:#11171C; --ink-2:#3D4852; --muted:#5A6672; --rule:#D8E0E5;
+    --accent:#3F6B8E;
+    --pass:#2E7D5B; --partial:#B87514; --fail:#A8404E;
+    --display:'Archivo',system-ui,sans-serif;
+    --body:'Source Serif 4',Georgia,serif;
+    --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --ground:#0E1418; --surface:#161D23; --surface-2:#1D262D;
+      --ink:#E7EDF1; --ink-2:#B6C2CB; --muted:#8A97A2; --rule:#2A353D;
+      --accent:#7AA8CC; --pass:#4FA97D; --partial:#D9963A; --fail:#D2707C;
+    }
+  }
+  :root[data-theme="dark"] {
+    --ground:#0E1418; --surface:#161D23; --surface-2:#1D262D;
+    --ink:#E7EDF1; --ink-2:#B6C2CB; --muted:#8A97A2; --rule:#2A353D;
+    --accent:#7AA8CC; --pass:#4FA97D; --partial:#D9963A; --fail:#D2707C;
+  }
+
+  body { background:var(--ground); color:var(--ink); font-family:var(--body);
+    line-height:1.6; -webkit-font-smoothing:antialiased; }
+  .wrap { max-width:64rem; margin:0 auto; padding-inline:20px; padding-block:48px 72px; }
+  h1,h2,h3,.mono,.tag,th { font-family:var(--display); }
+  .mono,.num,.score { font-family:var(--mono); font-variant-numeric:tabular-nums; }
+
+  header.head { border-bottom:2px solid var(--ink); padding-bottom:20px; margin-bottom:28px; }
+  .eyebrow { font-family:var(--display); font-size:.72rem; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--accent); font-weight:600; margin:0 0 10px; }
+  h1 { font-size:clamp(1.9rem,5vw,2.9rem); font-weight:700; letter-spacing:-.02em;
+    line-height:1.08; margin:0 0 12px; text-wrap:balance; }
+  .lede { font-size:1.06rem; color:var(--ink-2); max-width:62ch; margin:0; }
+
+  .meta { display:flex; flex-wrap:wrap; gap:8px 28px; margin-top:20px;
+    font-family:var(--mono); font-size:.78rem; color:var(--muted); }
+  .meta b { color:var(--ink-2); font-weight:500; }
+
+  .banner { display:flex; gap:10px; align-items:flex-start; margin:22px 0 0;
+    padding:12px 16px; border-radius:3px; font-size:.92rem; }
+  .banner.ok { background:color-mix(in srgb,var(--pass) 12%,transparent);
+    border-left:3px solid var(--pass); }
+  .banner.bad { background:color-mix(in srgb,var(--fail) 12%,transparent);
+    border-left:3px solid var(--fail); }
+
+  .caveat { margin:32px 0; padding:20px 22px; background:var(--surface);
+    border:1px solid var(--rule); border-left:3px solid var(--accent); border-radius:3px; }
+  .caveat h2 { font-size:1rem; margin:0 0 8px; letter-spacing:-.01em; }
+  .caveat p { margin:0; color:var(--ink-2); font-size:.96rem; }
+
+  h2.sec { font-size:.76rem; letter-spacing:.14em; text-transform:uppercase;
+    color:var(--muted); font-weight:600; margin:44px 0 16px;
+    padding-bottom:8px; border-bottom:1px solid var(--rule); }
+
+  ul.fams { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:2px; }
+  .fam { display:grid; grid-template-columns:auto 1fr auto; gap:4px 18px;
+    align-items:center; padding:16px 18px; background:var(--surface);
+    border:1px solid var(--rule); border-left:3px solid var(--muted); }
+  .fam--pass { border-left-color:var(--pass); }
+  .fam--partial { border-left-color:var(--partial); }
+  .fam--fail { border-left-color:var(--fail); }
+  .fam__id { font-family:var(--mono); font-size:1.1rem; font-weight:600;
+    color:var(--muted); width:1.4em; }
+  .fam__body h3 { margin:0; font-size:1.02rem; letter-spacing:-.01em; }
+  .fam__q { margin:2px 0 0; font-size:.92rem; color:var(--ink-2); }
+  .fam__method { margin:3px 0 0; font-family:var(--mono); font-size:.72rem; color:var(--muted); }
+  .fam__score { text-align:right; display:flex; flex-direction:column; align-items:flex-end; }
+  .fam__pct { font-family:var(--mono); font-size:1.65rem; font-weight:600; line-height:1; }
+  .fam__unit { font-size:.9rem; color:var(--muted); }
+  .fam__n { font-family:var(--mono); font-size:.7rem; color:var(--muted); margin-top:3px; }
+  .fam__meter { grid-column:1/-1; height:3px; background:var(--surface-2); margin-top:12px; }
+  .fam__fill { height:100%; background:var(--accent); }
+  .fam--pass .fam__fill { background:var(--pass); }
+  .fam--partial .fam__fill { background:var(--partial); }
+  .fam--fail .fam__fill { background:var(--fail); }
+
+  ol.findings { list-style:none; counter-reset:f; margin:0; padding:0;
+    display:flex; flex-direction:column; gap:22px; }
+  ol.findings li { counter-increment:f; padding-left:44px; position:relative; }
+  ol.findings li::before { content:counter(f,decimal-leading-zero);
+    position:absolute; left:0; top:1px; font-family:var(--mono); font-size:.85rem;
+    font-weight:600; color:var(--accent); }
+  ol.findings h3 { margin:0 0 6px; font-size:1.06rem; letter-spacing:-.01em; text-wrap:balance; }
+  ol.findings p { margin:0; color:var(--ink-2); max-width:70ch; }
+
+  .qs { margin-bottom:30px; }
+  .qs h3 { font-size:.98rem; margin:0 0 10px; display:flex; align-items:center; gap:9px; }
+  .tag { display:inline-flex; align-items:center; justify-content:center;
+    width:1.5rem; height:1.5rem; background:var(--surface-2); color:var(--accent);
+    font-family:var(--mono); font-size:.78rem; font-weight:600; border-radius:2px; }
+  .tablewrap { overflow-x:auto; border:1px solid var(--rule); background:var(--surface); }
+  table { border-collapse:collapse; width:100%; min-width:42rem; font-size:.86rem; }
+  th { text-align:left; font-size:.68rem; letter-spacing:.1em; text-transform:uppercase;
+    color:var(--muted); font-weight:600; padding:9px 12px; border-bottom:1px solid var(--rule); }
+  td { padding:9px 12px; border-bottom:1px solid var(--rule); vertical-align:top; }
+  tr:last-child td { border-bottom:none; }
+  td.q { color:var(--ink); min-width:19rem; }
+  td.route, td.num { color:var(--muted); font-size:.8rem; }
+  td.num { text-align:right; }
+  td.score { font-weight:600; }
+  .score--pass { color:var(--pass); }
+  .score--partial { color:var(--partial); }
+  .score--fail { color:var(--fail); }
+  td.detail { color:var(--ink-2); font-size:.82rem; min-width:14rem; }
+  .flag { display:block; margin-top:3px; font-family:var(--mono); font-size:.72rem; color:var(--fail); }
+
+  footer { margin-top:52px; padding-top:18px; border-top:1px solid var(--rule);
+    font-size:.84rem; color:var(--muted); }
+  footer p { margin:0 0 8px; max-width:72ch; }
+  code { font-family:var(--mono); font-size:.85em; background:var(--surface-2);
+    padding:1px 5px; border-radius:2px; }
+
+  @media (max-width:560px) {
+    .fam { grid-template-columns:auto 1fr; }
+    .fam__score { grid-column:2; align-items:flex-start; text-align:left; margin-top:8px; }
+  }
+</style>
+
+<div class="wrap">
+  <header class="head">
+    <p class="eyebrow">claude-mem &times; OfficeCLI &middot; run 2026-09-12 11:27</p>
+    <h1>Slides Memory Scorecard</h1>
+    <p class="lede">Six question families, scored six different ways, against 27 reference
+      decks. A single blended number would average a retrieval failure together with a synthesis
+      failure and hide both.</p>
+    <div class="meta">
+      <span><b>27</b> decks traced</span>
+      <span><b>3,582</b> officecli commands</span>
+      <span><b>28</b> questions</span>
+      <span>project <b>evalproj</b></span>
+      <span>corpus route <b>yes</b></span>
+    </div>
+    <div class="banner ok"><span>Semantic search (Chroma) was <strong>live</strong> for this run.</span></div>
+  </header>
+
+  <div class="caveat">
+    <h2>Read family A as a ceiling, not a grade</h2>
+    <p>This run seeded memory directly, so the deck facts were present by construction. Family A's 100%
+      therefore measures <em>retrieval only</em> &mdash; proof that search finds and ranks the right memory,
+      not proof that a real session would have recorded it. The organic-capture run is the other half of
+      that picture, and it is the one that disappoints.</p>
+  </div>
+
+  <h2 class="sec">Scores by family</h2>
+  <ul class="fams">
+      <li class="fam fam--pass">
+        <div class="fam__id">A</div>
+        <div class="fam__body">
+          <h3>Pinpoint provenance</h3>
+          <p class="fam__q">What code built this shape?</p>
+          <p class="fam__method">target recall over search &rarr; fetch</p>
+        </div>
+        <div class="fam__score">
+          <span class="fam__pct">100<span class="fam__unit">%</span></span>
+          <span class="fam__n">n=9</span>
+        </div>
+        <div class="fam__meter" role="img" aria-label="100 percent">
+          <div class="fam__fill" style="width:100%"></div>
+        </div>
+      </li>
+      <li class="fam fam--fail">
+        <div class="fam__id">B</div>
+        <div class="fam__body">
+          <h3>Taste synthesis</h3>
+          <p class="fam__q">What taste runs through all the decks?</p>
+          <p class="fam__method">reference-term coverage of the corpus answer</p>
+        </div>
+        <div class="fam__score">
+          <span class="fam__pct">31<span class="fam__unit">%</span></span>
+          <span class="fam__n">n=4</span>
+        </div>
+        <div class="fam__meter" role="img" aria-label="31 percent">
+          <div class="fam__fill" style="width:31%"></div>
+        </div>
+      </li>
+      <li class="fam fam--pass">
+        <div class="fam__id">C</div>
+        <div class="fam__body">
+          <h3>Style coverage</h3>
+          <p class="fam__q">Which style elements are actually used?</p>
+          <p class="fam__method">set recall, plus false-claim count</p>
+        </div>
+        <div class="fam__score">
+          <span class="fam__pct">88<span class="fam__unit">%</span></span>
+          <span class="fam__n">n=4</span>
+        </div>
+        <div class="fam__meter" role="img" aria-label="88 percent">
+          <div class="fam__fill" style="width:88%"></div>
+        </div>
+      </li>
+      <li class="fam fam--fail">
+        <div class="fam__id">D</div>
+        <div class="fam__body">
+          <h3>Abstention</h3>
+          <p class="fam__q">Does it admit when it knows nothing?</p>
+          <p class="fam__method">1.0 = correctly reported nothing known</p>
+        </div>
+        <div class="fam__score">
+          <span class="fam__pct">0<span class="fam__unit">%</span></span>
+          <span class="fam__n">n=4</span>
+        </div>
+        <div class="fam__meter" role="img" aria-label="0 percent">
+          <div class="fam__fill" style="width:0%"></div>
+        </div>
+      </li>
+      <li class="fam fam--fail">
+        <div class="fam__id">E</div>
+        <div class="fam__body">
+          <h3>Recency / supersession</h3>
+          <p class="fam__q">Is the answer the current one?</p>
+          <p class="fam__method">current value present AND superseded absent</p>
+        </div>
+        <div class="fam__score">
+          <span class="fam__pct">25<span class="fam__unit">%</span></span>
+          <span class="fam__n">n=4</span>
+        </div>
+        <div class="fam__meter" role="img" aria-label="25 percent">
+          <div class="fam__fill" style="width:25%"></div>
+        </div>
+      </li>
+      <li class="fam fam--partial">
+        <div class="fam__id">F</div>
+        <div class="fam__body">
+          <h3>Correction adherence</h3>
+          <p class="fam__q">Are corrections retrievable later?</p>
+          <p class="fam__method">target recall over search &rarr; fetch</p>
+        </div>
+        <div class="fam__score">
+          <span class="fam__pct">50<span class="fam__unit">%</span></span>
+          <span class="fam__n">n=3</span>
+        </div>
+        <div class="fam__meter" role="img" aria-label="50 percent">
+          <div class="fam__fill" style="width:50%"></div>
+        </div>
+      </li></ul>
+
+  <h2 class="sec">What the run actually shows</h2>
+  <ol class="findings">
+      <li><h3>Retrieval works. Capture is the weak link.</h3><p>With the deck facts present in memory, provenance questions score 100% and style coverage 88%: search finds the right memory and ranks it first. But seeding the same 27 decks through the real capture path produced only 2 observations and 4 session summaries from 10 slide-build events - the observer compresses mechanical build work down to deck-level prose and discards the per-shape coordinates. So the gap between these two numbers is not a search problem to tune; it is work that memory never recorded.</p></li>
+      <li><h3>It never says &ldquo;I don't know.&rdquo;</h3><p>All four unanswerable questions returned 12 confident-looking hits. Top-k search cannot itself signal an empty result, so a question about a slide that does not exist looks exactly like a question about one that does. Anything built on this needs its own abstention step - the retrieval layer will not provide one.</p></li>
+      <li><h3>Superseded decisions come back alongside current ones.</h3><p>Asked for the current accent colour, memory returned the current value together with both retired ones, with nothing marking which is live. For deck work this is the failure that does active damage: a template changed twice still answers with its first version.</p></li></ol>
+
+  <h2 class="sec">Every question</h2>
+  
+    <section class="qs">
+      <h3><span class="tag">A</span> Pinpoint provenance</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Question</th><th>Route</th><th>Hits</th><th>Score</th><th>Detail</th></tr></thead>
+          <tbody>
+          <tr>
+            <td class="q">In the &quot;bw--brutalist-raw&quot; deck, what officecli command created the shape named !!border-box, and what properties did it set?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">100%</td>
+            <td class="detail">7/7 targets present</td>
+          </tr>
+          <tr>
+            <td class="q">What fill colours were used in the &quot;bw--brutalist-raw&quot; deck?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">100%</td>
+            <td class="detail">4/4 targets present</td>
+          </tr>
+          <tr>
+            <td class="q">In the &quot;bw--mono-line&quot; deck, what officecli command created the shape named !!line-h-top, and what properties did it set?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">100%</td>
+            <td class="detail">7/7 targets present</td>
+          </tr>
+          <tr>
+            <td class="q">What fill colours were used in the &quot;bw--mono-line&quot; deck?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">100%</td>
+            <td class="detail">3/3 targets present</td>
+          </tr>
+          <tr>
+            <td class="q">In the &quot;bw--swiss-bauhaus&quot; deck, what officecli command created the shape named !!blk-a, and what properties did it set?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">100%</td>
+            <td class="detail">7/7 targets present</td>
+          </tr>
+          <tr>
+            <td class="q">What fill colours were used in the &quot;bw--swiss-bauhaus&quot; deck?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">100%</td>
+            <td class="detail">5/5 targets present</td>
+          </tr>
+          <tr>
+            <td class="q">In the &quot;dark--architectural-plan&quot; deck, what officecli command created the shape named !!bg-panel, and what properties did it set?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">100%</td>
+            <td class="detail">7/7 targets present</td>
+          </tr>
+          <tr>
+            <td class="q">What fill colours were used in the &quot;dark--architectural-plan&quot; deck?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">100%</td>
+            <td class="detail">5/5 targets present</td>
+          </tr>
+          <tr>
+            <td class="q">What slide transition was configured in the &quot;bw--brutalist-raw&quot; deck?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">100%</td>
+            <td class="detail">1/1 targets present</td>
+          </tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="qs">
+      <h3><span class="tag">B</span> Taste synthesis</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Question</th><th>Route</th><th>Hits</th><th>Score</th><th>Detail</th></tr></thead>
+          <tbody>
+          <tr>
+            <td class="q">What taste is prevalent across all these slides?</td>
+            <td class="mono route">corpus</td>
+            <td class="mono num">1</td>
+            <td class="mono num score score--partial">40%</td>
+            <td class="detail">10/25 targets present</td>
+          </tr>
+          <tr>
+            <td class="q">What is the colour discipline across the decks — how many colours per deck, and how are they used?</td>
+            <td class="mono route">corpus</td>
+            <td class="mono num">1</td>
+            <td class="mono num score score--fail">32%</td>
+            <td class="detail">8/25 targets present</td>
+          </tr>
+          <tr>
+            <td class="q">What typographic posture is consistent across the decks?</td>
+            <td class="mono route">corpus</td>
+            <td class="mono num">1</td>
+            <td class="mono num score score--fail">36%</td>
+            <td class="detail">9/25 targets present</td>
+          </tr>
+          <tr>
+            <td class="q">If you were to build a new deck in this house style, what five rules would you follow? Be specific to these decks.</td>
+            <td class="mono route">corpus</td>
+            <td class="mono num">1</td>
+            <td class="mono num score score--fail">16%</td>
+            <td class="detail">4/25 targets present</td>
+          </tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="qs">
+      <h3><span class="tag">C</span> Style coverage</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Question</th><th>Route</th><th>Hits</th><th>Score</th><th>Detail</th></tr></thead>
+          <tbody>
+          <tr>
+            <td class="q">What style elements are used across these decks? List the shape and slide properties that were actually set.</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">88%</td>
+            <td class="detail">recall 22/25</td>
+          </tr>
+          <tr>
+            <td class="q">What fonts appear across the decks?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--partial">65%</td>
+            <td class="detail">recall 11/17, 1 false claim(s)<span class="flag">fabricated: glow</span></td>
+          </tr>
+          <tr>
+            <td class="q">What slide transition types are used across the decks?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">100%</td>
+            <td class="detail">recall 1/1</td>
+          </tr>
+          <tr>
+            <td class="q">Which shape and slide properties were set when building the &quot;bw--swiss-bauhaus&quot; deck?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">100%</td>
+            <td class="detail">recall 15/15</td>
+          </tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="qs">
+      <h3><span class="tag">D</span> Abstention</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Question</th><th>Route</th><th>Hits</th><th>Score</th><th>Detail</th></tr></thead>
+          <tbody>
+          <tr>
+            <td class="q">What code built slide 9&#x27;s third quadrant in the swiss-bauhaus deck?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--fail">0%</td>
+            <td class="detail">answered confidently when it should have abstained</td>
+          </tr>
+          <tr>
+            <td class="q">What did we decide about the Helvetica Neue licensing for these decks?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--fail">0%</td>
+            <td class="detail">answered confidently when it should have abstained</td>
+          </tr>
+          <tr>
+            <td class="q">What animation was applied to the shape named !!blk-z?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--fail">0%</td>
+            <td class="detail">answered confidently when it should have abstained</td>
+          </tr>
+          <tr>
+            <td class="q">Which of these decks uses the Cherry Bold palette?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--fail">0%</td>
+            <td class="detail">answered confidently when it should have abstained</td>
+          </tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="qs">
+      <h3><span class="tag">E</span> Recency / supersession</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Question</th><th>Route</th><th>Hits</th><th>Score</th><th>Detail</th></tr></thead>
+          <tbody>
+          <tr>
+            <td class="q">What is the current accent colour for the house deck style?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--fail">0%</td>
+            <td class="detail">1/1 targets present; returned SUPERSEDED value(s): #2E5AAC, #1E88C7</td>
+          </tr>
+          <tr>
+            <td class="q">What slide margin are we using now?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--fail">0%</td>
+            <td class="detail">1/1 targets present; returned SUPERSEDED value(s): 1.27cm</td>
+          </tr>
+          <tr>
+            <td class="q">What is the current default slide transition for house decks?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--fail">0%</td>
+            <td class="detail">1/1 targets present; returned SUPERSEDED value(s): fade</td>
+          </tr>
+          <tr>
+            <td class="q">How are finished decks archived?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">100%</td>
+            <td class="detail">1/1 targets present</td>
+          </tr></tbody>
+        </table>
+      </div>
+    </section>
+    <section class="qs">
+      <h3><span class="tag">F</span> Correction adherence</h3>
+      <div class="tablewrap">
+        <table>
+          <thead><tr><th>Question</th><th>Route</th><th>Hits</th><th>Score</th><th>Detail</th></tr></thead>
+          <tbody>
+          <tr>
+            <td class="q">What was corrected about slide order in these decks?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--partial">50%</td>
+            <td class="detail">1/2 targets present</td>
+          </tr>
+          <tr>
+            <td class="q">What was rejected about the title treatment?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--pass">100%</td>
+            <td class="detail">1/1 targets present</td>
+          </tr>
+          <tr>
+            <td class="q">Is there anything we were told never to do again in these decks?</td>
+            <td class="mono route">search</td>
+            <td class="mono num">12</td>
+            <td class="mono num score score--fail">0%</td>
+            <td class="detail">0/1 targets present</td>
+          </tr></tbody>
+        </table>
+      </div>
+    </section>
+
+  <footer>
+    <p><strong>Scoring caveat.</strong> Family B uses deterministic reference-term coverage as a proxy for the LLM judge; full answers are included so the judgement stays inspectable.</p>
+    <p>Family D measures the retrieval surface, not the agent: top-k search always returns results, so it
+      can never itself report that nothing relevant is known.</p>
+    <p>Ground truth comes from running each deck's <code>build.sh</code> with a fake <code>officecli</code>
+      that records argv, so the shell performs its own variable expansion. Searches pass an explicit
+      <code>dateRange</code>, because Chroma otherwise drops anything older than 90 days silently.</p>
+  </footer>
+</div>
