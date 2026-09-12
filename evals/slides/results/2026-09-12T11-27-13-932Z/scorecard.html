@@ -262,9 +262,24 @@
         </div>
       </li></ul>
 
+  
+  <h2 class="sec">Does the fix work? Same 6 decks, organic capture only</h2>
+  <p class="lede" style="margin-bottom:14px">The skill now records each slide's provenance as it builds,
+    instead of leaving it to automatic capture. Both arms below were seeded through the real capture path
+    with an identical deck set and a wiped database &mdash; the only difference is that record step.
+    It took the database from <strong>6 observations to 39</strong>.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Family</th><th>Capture only</th><th>+ record step</th><th>&Delta;</th></tr></thead>
+      <tbody><tr><td class="q">A &middot; Pinpoint provenance</td><td class="mono num">47%</td><td class="mono num">94%</td><td class="mono num score score--pass">+47</td></tr><tr><td class="q">B &middot; Taste synthesis</td><td class="mono num">24%</td><td class="mono num">34%</td><td class="mono num score score--pass">+10</td></tr><tr><td class="q">C &middot; Style coverage</td><td class="mono num">62%</td><td class="mono num">78%</td><td class="mono num score score--pass">+16</td></tr><tr><td class="q">D &middot; Abstention</td><td class="mono num">0%</td><td class="mono num">0%</td><td class="mono num score score--">0</td></tr><tr><td class="q">E &middot; Recency / supersession</td><td class="mono num">25%</td><td class="mono num">50%</td><td class="mono num score score--pass">+25</td></tr><tr><td class="q">F &middot; Correction adherence</td><td class="mono num">0%</td><td class="mono num">0%</td><td class="mono num score score--">0</td></tr></tbody>
+    </table>
+  </div>
+  <p class="lede" style="margin-top:12px;font-size:.92rem">Families D, E and F carry no seeded data in this
+    comparison, so only A, B and C are meaningful here.</p>
+
   <h2 class="sec">What the run actually shows</h2>
   <ol class="findings">
-      <li><h3>Retrieval works. Capture is the weak link.</h3><p>With the deck facts present in memory, provenance questions score 100% and style coverage 88%: search finds the right memory and ranks it first. But seeding the same 27 decks through the real capture path produced only 2 observations and 4 session summaries from 10 slide-build events - the observer compresses mechanical build work down to deck-level prose and discards the per-shape coordinates. So the gap between these two numbers is not a search problem to tune; it is work that memory never recorded.</p></li>
+      <li><h3>Retrieval works. Capture was the weak link &mdash; and it is now fixed.</h3><p>Automatic capture is not useless, but it is partial: seeded through the real capture path, it answers 47% of provenance questions. What survives is deck-level &mdash; the palette, the fonts, the transition &mdash; because the observer compresses a slide build into prose. What does not survive is the per-shape detail: which named shape, at which coordinates, in which fill. Having the skill record each slide's provenance as it builds takes the same deck set from <strong>47% to 94%</strong>, against a 100% retrieval ceiling and a 6% empty-database baseline. The fix is in the record step, not in search.</p></li>
       <li><h3>A populated memory <em>suppresses</em> abstention entirely.</h3><p>Against an empty database the system correctly reports it knows nothing 75% of the time. Add the deck corpus and that collapses to 0%: all four unanswerable questions came back with 12 confident-looking hits. It is not that the system cannot abstain - it is that any retrieved results, however irrelevant, stop it from doing so. A question about a slide that does not exist is therefore indistinguishable from one about a slide that does, and anything built on this needs its own abstention step.</p></li>
       <li><h3>Superseded decisions come back alongside current ones.</h3><p>Asked for the current accent colour, memory returned the current value together with both retired ones, with nothing marking which is live. For deck work this is the failure that does active damage: a template changed twice still answers with its first version.</p></li>
       <li><h3>The taste answer is mostly the model talking, not memory.</h3><p>Family B scores 31% with the full corpus - but 18% with an <em>empty</em> database, because a fluent generic answer about minimalism and restraint still hits many of the same reference terms. Only about 13 points of that score is attributable to memory. Of the six families this is the one whose headline number most overstates what the system actually knows.</p></li></ol>

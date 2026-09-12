@@ -27,13 +27,14 @@ FAMILIES = {
 }
 
 FINDINGS = [
-    ("Retrieval works. Capture is the weak link.",
-     "With the deck facts present in memory, provenance questions score 100% and style coverage 88%: "
-     "search finds the right memory and ranks it first. But seeding the same 27 decks through the real "
-     "capture path produced only 2 observations and 4 session summaries from 10 slide-build events - the "
-     "observer compresses mechanical build work down to deck-level prose and discards the per-shape "
-     "coordinates. So the gap between these two numbers is not a search problem to tune; it is work that "
-     "memory never recorded."),
+    ("Retrieval works. Capture was the weak link &mdash; and it is now fixed.",
+     "Automatic capture is not useless, but it is partial: seeded through the real capture path, it answers "
+     "47% of provenance questions. What survives is deck-level &mdash; the palette, the fonts, the "
+     "transition &mdash; because the observer compresses a slide build into prose. What does not survive is "
+     "the per-shape detail: which named shape, at which coordinates, in which fill. Having the skill record "
+     "each slide's provenance as it builds takes the same deck set from <strong>47% to 94%</strong>, against "
+     "a 100% retrieval ceiling and a 6% empty-database baseline. The fix is in the record step, not in "
+     "search."),
     ("A populated memory <em>suppresses</em> abstention entirely.",
      "Against an empty database the system correctly reports it knows nothing 75% of the time. Add the "
      "deck corpus and that collapses to 0%: all four unanswerable questions came back with 12 "
@@ -65,7 +66,7 @@ def band(score):
     return "fail"
 
 
-def render(report, baseline=None):
+def render(report, baseline=None, ab=None):
     m = report["metadata"]
     by_family = report["byFamily"]
     results = report["results"]
@@ -145,6 +146,38 @@ def render(report, baseline=None):
     findings = "".join(
         f"""
       <li><h3>{t}</h3><p>{b}</p></li>""" for t, b in FINDINGS)
+
+    ab_html = ""
+    if ab:
+        arm_a, arm_b = ab
+        ab_rows = []
+        for key, (name, _q, _m) in FAMILIES.items():
+            a = arm_a["byFamily"].get(key)
+            b = arm_b["byFamily"].get(key)
+            if not a or not b:
+                continue
+            ap, bp = round(a["mean"] * 100), round(b["mean"] * 100)
+            delta = bp - ap
+            cls = "pass" if delta > 0 else ("fail" if delta < 0 else "")
+            mark = f'+{delta}' if delta > 0 else str(delta)
+            ab_rows.append(
+                f'<tr><td class="q">{key} &middot; {name}</td>'
+                f'<td class="mono num">{ap}%</td><td class="mono num">{bp}%</td>'
+                f'<td class="mono num score score--{cls}">{mark}</td></tr>')
+        ab_html = f"""
+  <h2 class="sec">Does the fix work? Same 6 decks, organic capture only</h2>
+  <p class="lede" style="margin-bottom:14px">The skill now records each slide's provenance as it builds,
+    instead of leaving it to automatic capture. Both arms below were seeded through the real capture path
+    with an identical deck set and a wiped database &mdash; the only difference is that record step.
+    It took the database from <strong>6 observations to 39</strong>.</p>
+  <div class="tablewrap">
+    <table>
+      <thead><tr><th>Family</th><th>Capture only</th><th>+ record step</th><th>&Delta;</th></tr></thead>
+      <tbody>{''.join(ab_rows)}</tbody>
+    </table>
+  </div>
+  <p class="lede" style="margin-top:12px;font-size:.92rem">Families D, E and F carry no seeded data in this
+    comparison, so only A, B and C are meaningful here.</p>"""
 
     chroma_cls = "ok" if chroma else "bad"
     chroma_txt = ("Semantic search (Chroma) was <strong>live</strong> for this run."
@@ -313,6 +346,8 @@ def render(report, baseline=None):
   <h2 class="sec">Scores by family</h2>
   <ul class="fams">{''.join(rows)}</ul>
 
+  {ab_html}
+
   <h2 class="sec">What the run actually shows</h2>
   <ol class="findings">{findings}</ol>
 
@@ -336,9 +371,13 @@ def main():
     out = Path(sys.argv[2])
     report = json.loads((results_dir / "report.json").read_text())
     baseline = None
-    if len(sys.argv) > 3:
+    if len(sys.argv) > 3 and sys.argv[3] != "-":
         baseline = json.loads((Path(sys.argv[3]) / "report.json").read_text())
-    out.write_text(render(report, baseline))
+    ab = None
+    if len(sys.argv) > 5:
+        ab = (json.loads((Path(sys.argv[4]) / "report.json").read_text()),
+              json.loads((Path(sys.argv[5]) / "report.json").read_text()))
+    out.write_text(render(report, baseline, ab))
     print(f"wrote {out}")
 
 
