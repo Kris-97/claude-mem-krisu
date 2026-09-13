@@ -196,6 +196,86 @@ async function main() {
     return 3;
   }
 
+  if (cmd === 'export') {
+    // Taste has to outlive one machine's database. A cloud container is
+    // reclaimed; a laptop gets rebuilt. The committed file is the durable copy
+    // and the way these rules reach KM's own machine at all.
+    const rows = await fetchRows(args.project);
+    if (!rows.length) {
+      console.error('nothing to export — no taste rules recorded');
+      return 3;
+    }
+    const lines = [
+      '---',
+      `project: ${args.project}`,
+      'tags: [taste, design, officecli]',
+      '---',
+      '',
+      "# KM's taste, as decision rules",
+      '',
+      'Exported from memory by `taste.mjs export`. Re-import with',
+      '`taste.mjs import <file>` on any machine to restore these rules.',
+      '',
+      'A rule here is a decision that has been made. Follow it; do not improve on',
+      'it. Anything not covered is OPEN and must be asked about, never guessed.',
+      '',
+    ];
+    for (const row of rows.sort((a, b) => String(a.title).localeCompare(String(b.title)))) {
+      lines.push(`## ${row.title}`, '', String(row.narrative ?? row.text ?? '').trim(), '');
+    }
+    const file = rest[0] ?? 'TASTE.md';
+    (await import('node:fs')).writeFileSync(file, lines.join('\n'));
+    console.log(`exported ${rows.length} rules to ${file}`);
+    return 0;
+  }
+
+  if (cmd === 'import') {
+    const file = rest[0];
+    if (!file) {
+      console.error('usage: taste.mjs import <file>');
+      return 1;
+    }
+    const fs = await import('node:fs');
+    if (!fs.existsSync(file)) {
+      console.error(`not found: ${file}`);
+      return 1;
+    }
+    const body = fs.readFileSync(file, 'utf-8').replace(/^---[\s\S]*?\n---\n/, '');
+    const existing = await fetchRows(args.project);
+    const have = new Set(existing.map((o) => o.title));
+
+    let imported = 0;
+    let skipped = 0;
+    // Sections are `## TASTE <slot>` followed by the rule body.
+    const sections = body.split(/\n## /).slice(1);
+    for (const section of sections) {
+      const [heading, ...restLines] = section.split('\n');
+      const title = heading.trim();
+      if (!title.startsWith('TASTE')) continue;
+      if (have.has(title)) {
+        skipped++;
+        continue;
+      }
+      const text = restLines.join('\n').trim();
+      if (!text) continue;
+      const slot = title.replace(/^TASTE\s+/, '');
+      const res = await saveMemory({
+        title,
+        text,
+        project: args.project,
+        metadata: {
+          project: args.project,
+          platformSource: 'officecli',
+          kind: title.startsWith('TASTE veto') ? 'taste-veto' : 'taste',
+          slot,
+        },
+      });
+      if (res.ok && res.body?.success) imported++;
+    }
+    console.log(`imported ${imported}, skipped ${skipped} (already present)`);
+    return 0;
+  }
+
   console.error(`unknown command "${cmd}"`);
   return 1;
 }
