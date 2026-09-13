@@ -66,6 +66,29 @@ be corrected rather than silently re-applied:
 > problem → evidence → recommendation order from the March deck. Say if either
 > has moved on.
 
+### Depth is not optional
+
+**A deck built only from flat fills, position and size is unfinished.** Before
+you call a deck done, make at least one deliberate depth-or-finish decision, and
+give the deck one hero moment that uses the 3D stack or a gradient field.
+
+This rule exists because the reference styles teach the opposite. OfficeCLI
+supports 15 depth and finish properties — `shadow`, `innerShadow`, `glow`,
+`reflection`, `softEdge`, `gradient`, `pattern`, `lineDash`, `textWarp`, `bevel`,
+`bevelBottom`, `depth`, `material`, `lighting`, `highlight` — and all 51 styles
+in `skills/morph-ppt/reference/styles/` use **every one of them zero times**,
+while their design notes mention "gradient" 58 times and "glow" 22. Copy those
+scripts and you inherit flat output that describes itself as rich.
+
+`<CLAUDE_MEM_OFFICECLI>/design/TECHNIQUES.md` has the exact syntax for each,
+with what it is for and where it tips into looking dated. Read it before
+building, pick deliberately, and say which technique you chose and why — a
+choice the user can veto beats a default they have to notice.
+
+The restraint matters as much as the reach: one shadow depth per deck, one 3D
+object per slide, two gradient stops in the same hue family. Extruding every card
+is worse than extruding none.
+
 ## 3. Record as you build — one memory per slide
 
 **The deck is not finished until its provenance is recorded. This is a
