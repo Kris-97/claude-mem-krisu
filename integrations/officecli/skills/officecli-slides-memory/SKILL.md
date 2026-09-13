@@ -22,6 +22,37 @@ one decided.
 without recording leaves the next session exactly as ignorant as this one
 started, which is the failure this whole integration exists to prevent.
 
+## 0. Taste first — ask, never guess
+
+Before anything else:
+
+```bash
+node <CLAUDE_MEM_OFFICECLI>/scripts/taste.mjs list
+```
+
+This is the whole point of the integration. A deck is dozens of small decisions —
+which accent, how much depth, what goes last — and **every one the system decides
+for itself is a wrong decision waiting to happen**, plus a correction KM has to
+give again next time.
+
+So each decision is a slot, and a slot is one of two things:
+
+- **DECIDED** — KM has ruled on it. Follow it exactly. Do not improve on it.
+- **OPEN** — nobody has ruled. **Ask KM. Do not invent, do not infer from the
+  reference decks, do not fall back to what usually looks good.** Then record the
+  answer with `taste.mjs set <slot> "<rule>"` so it is DECIDED forever.
+
+Asking costs one line. Guessing costs a deck that looks wrong in a way KM then
+has to explain — again.
+
+Batch the open questions into one message rather than interrupting per slide,
+and only ask about slots this deck actually needs. `taste.mjs open` lists what is
+unanswered.
+
+Two things that are not negotiable regardless of slot state: anything recorded as
+a **veto** (`TASTE veto:`) is never done, and a rule KM stated beats anything
+inferred from a deck, a template or this skill's own defaults.
+
 ## 1. Recall, before the first `officecli` call
 
 Query memory *before* proposing a structure, not after the user rejects one.
@@ -81,13 +112,16 @@ while their design notes mention "gradient" 58 times and "glow" 22. Copy those
 scripts and you inherit flat output that describes itself as rich.
 
 `<CLAUDE_MEM_OFFICECLI>/design/TECHNIQUES.md` has the exact syntax for each,
-with what it is for and where it tips into looking dated. Read it before
-building, pick deliberately, and say which technique you chose and why — a
-choice the user can veto beats a default they have to notice.
+with what it is for and where it tips into looking dated.
 
-The restraint matters as much as the reach: one shadow depth per deck, one 3D
-object per slide, two gradient stops in the same hue family. Extruding every card
-is worse than extruding none.
+**But how much depth is right is KM's call, not the library's.** Check
+`taste.mjs get depth.policy` first. If it is DECIDED, follow it. If it is OPEN,
+ask — and record the answer so nobody asks twice.
+
+The guidance in TECHNIQUES.md — one shadow depth per deck, one 3D object per
+slide, two gradient stops in the same hue family — is a **default, not KM's
+taste**. It is there so an unanswered question does not produce something
+embarrassing, and it loses to any recorded rule.
 
 ## 3. Record as you build — one memory per slide
 
@@ -139,6 +173,12 @@ Separately from the mechanical record, write one memory each time:
 - the user **corrects** you ("no, we always put the ask last") — corrections are
   the highest-value memories in the database, because they encode a preference
   no file records. Record the correction itself, not the corrected result.
+  **A correction is taste**: if it maps to a slot, also write it with
+  `taste.mjs set <slot> "<rule>" --why "KM corrected this on <deck>"`, and if it
+  is a "never do that again", use `taste.mjs veto`. A correction recorded only as
+  prose will be retrieved as a story; recorded as a rule it becomes a decision the
+  next deck simply obeys. Every correction should make one slot go from OPEN to
+  DECIDED — that is the system learning KM's taste instead of re-asking for it.
 - a **workaround** is found (a renderer bug, an export quirk, a font that fails)
 - the deck is **delivered** — one memory naming the file, audience and outcome
 
